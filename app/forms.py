@@ -97,3 +97,5 @@ def send_email(email, request, _type):
 
     from_email = EMAIL_HOST_USER
     recipient_list = [email]
+
+
