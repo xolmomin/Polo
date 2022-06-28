@@ -3,6 +3,17 @@
 
 
 {% block body_main %}
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <ul>
+                    <li class="home"><a title="Go to Home Page" href="{% url 'index' %}">Home</a><span>&mdash;›</span></li>
+                    <li class><a title="Woman" href="{% url 'product_list' %}">Woman</a><span>&mdash;›</span></li>
+                    <li class="category13"><strong>Tops & Tees</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="main-container col2-left-layout">
         <div class="main container">
             <div class="row">

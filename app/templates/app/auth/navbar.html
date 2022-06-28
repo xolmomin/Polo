@@ -51,7 +51,7 @@
                                         class="hidden-xs">Wishlist</span></a></div>
                                 <div class="check"><a title="Checkout" href="checkout.html"><span class="hidden-xs">Checkout</span></a>
                                 </div>
-                                <div class="login"><a title="Login" href="#"><span
+                                <div class="login"><a title="Login" href="{% url 'login_page' %}"><span
                                         class="hidden-xs">Log In</span></a></div>
                             </div>
                         </div>
@@ -1070,14 +1070,4 @@
         </div>
     </div>
 </nav>
-<div class="breadcrumbs">
-    <div class="container">
-        <div class="row">
-            <ul>
-                <li class="home"><a href="{% url 'index' %}" title="Go to Home Page">Home</a><span>&mdash;›</span></li>
-                <li class=""><a href="{% url 'product_list' %}" title="Go to Home Page">Women</a><span>&mdash;›</span></li>
-                <li class="category13"><strong>Tops &amp; Tees</strong></li>
-            </ul>
-        </div>
-    </div>
-</div>
+

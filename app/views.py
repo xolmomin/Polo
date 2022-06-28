@@ -10,7 +10,7 @@ from app.forms import RegisterForm
 class RegisterPage(FormView):
     form_class = RegisterForm
     success_url = reverse_lazy('login_page')
-    template_name = 'app/register.html'
+    template_name = 'app/register-page.html'
 
     def form_valid(self, form):
         form.save()
@@ -27,6 +27,9 @@ class LogoutPage(LogoutView):
 
 class LoginPage(LoginView):
     template_name = 'app/login-page.html'
+
+
+
 
 class IndexPage(TemplateView):
     template_name = 'app/index.html'

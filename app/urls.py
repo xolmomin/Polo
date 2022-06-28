@@ -1,10 +1,12 @@
 from django.urls import path
 
-from app.views import IndexPage, LoginPage, LogoutPage, ProductPage, ProductDetailPage, QuickViewPage, AllProductPage
+from app.views import IndexPage, LoginPage, LogoutPage, ProductPage, ProductDetailPage, QuickViewPage, AllProductPage, \
+    RegisterPage
 
 urlpatterns = [
     path('', IndexPage.as_view(), name='index'),
     path('login/', LoginPage.as_view(), name='login_page'),
+    path('register/', RegisterPage.as_view(), name='register_page'),
     path('logout/', LogoutPage.as_view(), name='logout_page'),
     path('product-list/', ProductPage.as_view(), name='product_list'),
     path('all-product-list/', AllProductPage.as_view(), name='all_product_list'),
