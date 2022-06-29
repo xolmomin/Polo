@@ -25,10 +25,9 @@ class RegisterPage(FormView):
 class LogoutPage(LogoutView):
     template_name = 'app/logout-page.html'
 
+
 class LoginPage(LoginView):
     template_name = 'app/login-page.html'
-
-
 
 
 class IndexPage(TemplateView):
@@ -38,6 +37,7 @@ class IndexPage(TemplateView):
 class ProductPage(TemplateView):
     template_name = 'app/product-list.html'
 
+
 class AllProductPage(TemplateView):
     template_name = 'app/all-product-list.html'
 
@@ -45,6 +45,30 @@ class AllProductPage(TemplateView):
 class ProductDetailPage(TemplateView):
     template_name = 'app/product-detail-page.html'
 
+
 class QuickViewPage(TemplateView):
     template_name = 'app/quick-view-page.html'
 
+
+class FaqPage(TemplateView):
+    template_name = 'app/faq.html'
+
+
+class ComparePage(TemplateView):
+    template_name = 'app/compare-page.html'
+
+
+class AddressPage(TemplateView):
+    template_name = 'app/addresses.html'
+
+
+class ContactUsPage(TemplateView):
+    template_name = 'app/contact-us.html'
+
+
+class AboutUsPage(TemplateView):
+    template_name = 'app/about_us.html'
+
+
+class ForgotPasswordPage(TemplateView):
+    template_name = 'app/forgot-password.html'
