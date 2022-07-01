@@ -3,10 +3,9 @@ from django.contrib.auth.views import LogoutView, LoginView
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
-from app.forms import RegisterForm
-from app.models import Product
 
 from app.forms import RegisterForm, LoginForm
+from app.models import Product
 
 
 class RegisterPage(FormView):
