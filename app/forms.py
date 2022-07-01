@@ -56,7 +56,7 @@ class RegisterForm(Form):
     def clean_email(self):
         email = self.data.get('email')
         if User.objects.filter(email=email).exists():
-            raise ValidationError(f'{email} this email is already registered ')
+            raise ValidationError(f' {email} this email is already registered ')
         return email
 
     def clean_username(self):
@@ -69,7 +69,7 @@ class RegisterForm(Form):
         password = self.data.get('password')
         confirm_password = self.data.get('confirm_password')
         if password != confirm_password:
-            raise ValidationError('tasdiqlash paroli xato')
+            raise ValidationError('Comfirm password is not same')
         return password
 
     @atomic
@@ -105,5 +105,3 @@ def send_email(email, request, _type):
 
     from_email = EMAIL_HOST_USER
     recipient_list = [email]
-
-

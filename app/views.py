@@ -25,7 +25,7 @@ class RegisterPage(FormView):
 
 
 class LogoutPage(LogoutView):
-    template_name = 'app/logout-page.html'
+    template_name = 'app/main/log-out.html'
 
 
 class LoginPage(LoginView):
