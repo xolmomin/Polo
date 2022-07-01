@@ -30,7 +30,7 @@ class LogoutPage(LogoutView):
 
 class LoginPage(LoginView):
     form_class = LoginForm
-    template_name = 'app/login-page.html'
+    template_name = 'app/main/login-page.html'
     success_url = reverse_lazy('index')
 
     def form_valid(self, form):
