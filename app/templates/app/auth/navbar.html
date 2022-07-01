@@ -2,57 +2,67 @@
 
 
 <header class="header-container">
-        <div class="header-top">
-            <div class="container">
-                <div class="row">
-                    <!-- Header Language -->
-                    <div class="col-xs-6">
-                        <div class="dropdown block-language-wrapper"><a role="button" data-toggle="dropdown"
-                                                                        data-target="#"
-                                                                        class="block-language dropdown-toggle" href="#">
-                            <img src="{% static 'app/images/english.png' %}" alt="language"> English <span
-                                class="caret"></span> </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img
-                                        src="{% static 'app/images/english.png' %}" alt="language"> English </a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img
-                                        src="{% static 'app/images/francais.png' %}" alt="language"> French </a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img
-                                        src="{% static 'app/images/german.png' %}" alt="language"> German </a></li>
-                            </ul>
-                        </div>
-
-                        <!-- End Header Language -->
-
-                        <!-- Header Currency -->
-                        <div class="dropdown block-currency-wrapper"><a role="button" data-toggle="dropdown"
-                                                                        data-target="#"
-                                                                        class="block-currency dropdown-toggle" href="#">
-                            USD <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> $ - Dollar </a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> £ - Pound </a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> € - Euro </a></li>
-                            </ul>
-                        </div>
-
-                        <!-- End Header Currency -->
-
-                        <div class="welcome-msg hidden-xs"> Default welcome msg!</div>
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <!-- Header Language -->
+                <div class="col-xs-6">
+                    <div class="dropdown block-language-wrapper"><a role="button" data-toggle="dropdown"
+                                                                    data-target="#"
+                                                                    class="block-language dropdown-toggle" href="#">
+                        <img src="{% static 'app/images/english.png' %}" alt="language"> English <span
+                            class="caret"></span> </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img
+                                    src="{% static 'app/images/english.png' %}" alt="language"> English </a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img
+                                    src="{% static 'app/images/francais.png' %}" alt="language"> French </a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img
+                                    src="{% static 'app/images/german.png' %}" alt="language"> German </a></li>
+                        </ul>
                     </div>
-                    <div class="col-xs-6">
 
-                        <!-- Header Top Links -->
-                        <div class="toplinks">
-                            <div class="links">
-                                <div class="myaccount"><a title="My Account" href="{% url 'login_page' %}"><span class="hidden-xs">My Account</span></a>
+                    <!-- End Header Language -->
+
+                    <!-- Header Currency -->
+                    <div class="dropdown block-currency-wrapper"><a role="button" data-toggle="dropdown"
+                                                                    data-target="#"
+                                                                    class="block-currency dropdown-toggle" href="#">
+                        USD <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> $ - Dollar </a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> £ - Pound </a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> € - Euro </a></li>
+                        </ul>
+                    </div>
+
+                    <!-- End Header Currency -->
+
+                    <div class="welcome-msg hidden-xs"> Default welcome msg!</div>
+                </div>
+                <div class="col-xs-6">
+
+                    <!-- Header Top Links -->
+                    <div class="toplinks">
+                        <div class="links">
+                            <div class="myaccount"><a title="My Account" href="login.html"><span class="hidden-xs">My Account</span></a>
+                            </div>
+                            <div class="wishlist"><a title="My Wishlist" href="wishlist.html"><span
+                                    class="hidden-xs">Wishlist</span></a></div>
+                            <div class="check"><a title="Checkout" href="checkout.html"><span
+                                    class="hidden-xs">Checkout</span></a>
+                            </div>
+                            {% if user.is_authenticated %}
+                                <div class="logout">
+                                    <a title="Logout" href="{% url 'logout_page' %}"><span
+                                        class="hidden-xs">Logout</span>
+                                    </a>
                                 </div>
-                                <div class="wishlist"><a title="My Wishlist" href="{% url 'my_wishlist_page' %}"><span
-                                        class="hidden-xs">Wishlist</span></a></div>
-                                <div class="check"><a title="Checkout" href="{% url 'check_out_page' %}"><span class="hidden-xs">Checkout</span></a>
-                                </div>
+                            {% else %}
                                 <div class="login"><a title="Login" href="{% url 'login_page' %}"><span
-                                        class="hidden-xs">Log In</span></a></div>
+                                    class="hidden-xs">Log In</span></a>
+                            {% endif %}
+
                             </div>
                         </div>
                         <!-- End Header Top Links -->
@@ -65,7 +75,7 @@
                 <div class="col-lg-2 col-sm-3 col-md-2">
                     <!-- Header Logo -->
                     <a class="logo" title="Magento Commerce" href="{% url 'index' %}"><img alt="Magento Commerce"
-                                                                                    src="{% static 'app/images/logo.png' %}"></a>
+                                                                                           src="{% static 'app/images/logo.png' %}"></a>
                     <!-- End Header Logo -->
                 </div>
                 <div class="col-lg-8 col-sm-6 col-md-8">
@@ -135,7 +145,8 @@
                                                 <div class="product-details"><a href="#" title="Remove This Item"
                                                                                 onClick=""
                                                                                 class="glyphicon glyphicon-remove">&nbsp;</a>
-                                                    <a class="glyphicon glyphicon-pencil" title="Edit item" href="#">&nbsp;</a>
+                                                    <a class="glyphicon glyphicon-pencil" title="Edit item"
+                                                       href="#">&nbsp;</a>
                                                     <p class="product-name"><a href="#" title="  Sample Product ">
                                                         Sample Product </a></p>
                                                 </div>
@@ -163,7 +174,7 @@
                 <!-- End Top Cart -->
             </div>
         </div>
-    </header>
+</header>
 <nav>
     <div class="container">
         <div class="nav-inner">
@@ -181,7 +192,8 @@
                         <ul class="submenu">
                             <li>
                                 <ul class="topnav">
-                                    <li class="level0 nav-6 level-top first parent"><a class="level-top" href="{% url 'product_list' %}">
+                                    <li class="level0 nav-6 level-top first parent"><a class="level-top"
+                                                                                       href="{% url 'product_list' %}">
                                         <span>Pages</span> </a>
                                         <ul class="level0">
                                             <li class="level1 first"><a
@@ -989,8 +1001,31 @@
                     <!--mega menu-->
 
                 </li>
-
-
+                <li class="level0 parent drop-menu"><a href="{% url 'product_list' %}"><span>Sub menu </span>
+                    <!--<span class="category-label-hot">Hot</span> -->
+                </a>
+                    <ul class="level1">
+                        <li class="level1 first parent"><a href="grid"><span>Submenu</span></a>
+                            <ul class="level2">
+                                <li class="level2 first"><a href="#"><span>Menu1</span></a></li>
+                                <li class="level2 nav-1-1-2"><a href="#"><span>Menu1</span></a></li>
+                                <li class="level2 nav-1-1-3"><a href="#"><span>Menu2</span></a></li>
+                                <li class="level2 nav-1-1-4"><a href="#"><span>Menu3</span></a></li>
+                                <li class="level2 nav-1-1-5 last"><a href="#"><span>Menu4</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="level1 first parent"><a href="#"><span>Submenu</span></a>
+                            <ul class="level2">
+                                <li class="level2 first"><a href="#"><span>Menu1</span></a></li>
+                                <li class="level2 nav-1-1-2"><a href="#"><span>Menu1</span></a></li>
+                                <li class="level2 nav-1-1-3"><a href="#"><span>Menu2</span></a></li>
+                                <li class="level2 nav-1-1-4"><a href="#"><span>Menu3</span></a></li>
+                                <li class="level2 nav-1-1-5 last"><a href="#"><span>Menu4</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="level1 parent"><a href="#"><span>Submenu</span></a></li>
+                    </ul>
+                </li>
                 <li class="nav-custom-link level0 level-top parent"><a class="level-top"
                                                                        href="#"><span>Custom</span></a>
                     <div class="level0-wrapper custom-menu">

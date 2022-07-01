@@ -23,30 +23,49 @@
                             </div>
                         </div>
                     </div>
+                    <div class="position-relative mt-4" style="color : RED">
+{#                        <p>#}
+{#                            {% if messages %}#}
+{#                                {% for message in messages %}#}
+{#                                    <p>{{ message }}</p>#}
+{#                                {% endfor %}#}
+{#                            {% endif %}#}
+
+                        {% if form.errors %}
+                            <p>{{ form.errors }}</p>
+                        {% endif %}
+                        </p>
+                    </div>
                     <div class="col-2 registered-users"><strong>Registered Customers</strong>
                         <div class="content">
                             <p>If you have an account with us, please log in.</p>
-                            <ul class="form-list">
-                                <li>
-                                    <label for="email">Email Address <span class="required">*</span></label>
-                                    <br>
-                                    <input type="text" title="Email Address" class="input-text required-entry"
-                                           id="email" value="" name="login[username]">
-                                </li>
-                                <li>
-                                    <label for="pass">Password <span class="required">*</span></label>
-                                    <br>
-                                    <input type="password" title="Password" id="pass"
-                                           class="input-text required-entry validate-password" name="login[password]">
-                                </li>
-                            </ul>
-                            <p class="required">* Required Fields</p>
-                            <div class="buttons-set">
-                                <button id="send2" name="send" type="submit" class="button login"><span>Login</span>
-                                </button>
-                                <a class="forgot-word"
-                                   href="{% url 'forgot_password_page' %}">Forgot
-                                    Your Password?</a></div>
+                            <form method="post" action="{% url 'login_page' %}">
+                                {% csrf_token %}
+                                <ul class="form-list">
+                                    <li>
+                                        <label for="email">Email Address <span class="required">*</span></label>
+                                        <br>
+                                        <input type="text" title="Email Address" class="input-text required-entry"
+                                               id="email" value="" name="email">
+                                    </li>
+                                    <li>
+                                        <label for="pass">Password <span class="required">*</span></label>
+                                        <br>
+                                        <input type="password" title="Password" id="pass"
+                                               class="input-text required-entry validate-password"
+                                               name="password">
+                                    </li>
+                                </ul>
+
+                                <p class="required">* Required Fields</p>
+                                <div class="buttons-set">
+                                    <button id="send2" type="submit" class="button login">
+                                        <span>Login</span>
+                                    </button>
+                                    <a class="forgot-word"
+                                       href="http://demo.magentomagik.com/computerstore/customer/account/forgotpassword/">Forgot
+                                        Your Password?</a></div>
+                            </form>
                         </div>
                     </div>
                 </fieldset>
