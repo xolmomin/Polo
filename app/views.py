@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 from app.forms import RegisterForm
+from app.models import Product
 
 
 class RegisterPage(FormView):
@@ -30,8 +31,12 @@ class LoginPage(LoginView):
     template_name = 'app/main/login-page.html'
 
 
-class IndexPage(TemplateView):
-    template_name = 'app/index.html'
+def IndexPage(request):
+    products = Product.objects.all()
+    context = {
+        'products': products
+    }
+    return render(request, 'app/index.html', context)
 
 
 class ProductPage(TemplateView):
@@ -44,6 +49,14 @@ class AllProductPage(TemplateView):
 
 class ProductDetailPage(TemplateView):
     template_name = 'app/products/product-detail-page.html'
+
+
+def Product_Detail_Page(request, product_id):
+    products = Product.objects.filter(id=product_id).first()
+    context = {
+        'product_details': products
+    }
+    return render(request, 'app/products/product-detail-page.html', context)
 
 
 class QuickViewPage(TemplateView):
