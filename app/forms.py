@@ -88,7 +88,7 @@ def send_email(email, request, _type):
     user = User.objects.get(email=email)
     subject = ' POLO Shop - activate your account'
     current_site = get_current_site(request)
-    message = render_to_string('app/activation-password.html', {
+    message = render_to_string('app/main/activation-password.html', {
         'user': user,
         'domain': current_site.domain,
         'uid': urlsafe_base64_encode(force_bytes(str(user.pk))),
