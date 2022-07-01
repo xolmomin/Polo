@@ -228,3 +228,4 @@ cython_debug/
 media/
 .idea/
 
+!/db.sqlite3

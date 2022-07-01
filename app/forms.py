@@ -13,12 +13,13 @@ from root.settings import EMAIL_HOST, EMAIL_HOST_USER
 
 
 class LoginForm(AuthenticationForm):
+    username = CharField(required=False)
     email = EmailField()
     password = CharField(max_length=255)
 
     def clean_email(self):
         email = self.data.get('email')
-        if not User.objects.filter(email=email):
+        if not User.objects.filter(email=email).exists():
             raise ValidationError('This email is not exists ')
         return email
 
@@ -26,9 +27,8 @@ class LoginForm(AuthenticationForm):
         email = self.data.get('email')
         password = self.data.get('password')
 
-        user = User.objects.get(email=email)
-
-        if not user.check_password(password):
+        user = User.objects.filter(email=email).first()
+        if user and not user.check_password(password):
             return ValidationError('Password entered error')
         return password
 
@@ -51,6 +51,7 @@ class RegisterForm(Form):
     username = CharField(max_length=255)
     email = EmailField()
     password = CharField(max_length=255)
+    confirm_password = CharField(max_length=255)
 
     def clean_email(self):
         email = self.data.get('email')
@@ -63,6 +64,13 @@ class RegisterForm(Form):
         if User.objects.filter(username=username).exists():
             raise ValidationError(f' User {username} is already registered ')
         return username
+
+    def clean_password(self):
+        password = self.data.get('password')
+        confirm_password = self.data.get('confirm_password')
+        if password != confirm_password:
+            raise ValidationError('tasdiqlash paroli xato')
+        return password
 
     @atomic
     def save(self):

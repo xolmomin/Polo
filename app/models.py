@@ -35,6 +35,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
+    username = CharField(max_length=255)
     email = EmailField(unique=True)
     phone_number = CharField(max_length=25, validators=[integer_validator])
     address = CharField(max_length=255, null=True)
@@ -43,6 +44,7 @@ class User(AbstractUser):
     REQUIRED_FIELDS = []
 
     objects = UserManager()
+
 
 
 class Profile(Model):
