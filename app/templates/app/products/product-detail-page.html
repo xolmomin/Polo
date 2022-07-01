@@ -1,5 +1,5 @@
 {% extends 'app/auth/base.html' %}
-{% load static%}
+{% load static %}
 
 
 
@@ -11,7 +11,8 @@
         <div class="container">
             <div class="row">
                 <ul>
-                    <li class="home"><a title="Go to Home Page" href="{% url 'index' %}">Home</a><span>&mdash;›</span></li>
+                    <li class="home"><a title="Go to Home Page" href="{% url 'index' %}">Home</a><span>&mdash;›</span>
+                    </li>
                     <li class><a title="Woman" href="{% url 'product_list' %}">Woman</a><span>&mdash;›</span></li>
                     <li class="category13"><strong>Sample Product</strong></li>
                 </ul>
@@ -34,16 +35,19 @@
                                         <li class="moreview_thumb thumb_1"><img class="moreview_thumb_image"
                                                                                 src="{% static 'app/products-images/product1.jpg' %}"
                                                                                 alt="thumbnail"> <img
-                                                class="moreview_source_image" src="{% static 'app/products-images/product1.jpg' %}" alt="">
+                                                class="moreview_source_image"
+                                                src="{% static 'app/products-images/product1.jpg' %}" alt="">
                                             <span class="roll-over">Roll over image to zoom in</span> <img
                                                     class="zoomImg"
                                                     src="{% static 'app/products-images/product1.jpg' %}"
                                                     alt="thumbnail">
                                         </li>
                                         <li class="moreview_thumb thumb_2 moreview_thumb_active"><img
-                                                class="moreview_thumb_image" src="{% static 'app/products-images/product1.jpg' %}"
+                                                class="moreview_thumb_image"
+                                                src="{% static 'app/products-images/product1.jpg' %}"
                                                 alt="thumbnail"> <img class="moreview_source_image"
-                                                                      src="{% static 'app/products-images/product1.jpg' %}" alt=""> <span
+                                                                      src="{% static 'app/products-images/product1.jpg' %}"
+                                                                      alt=""> <span
                                                 class="roll-over">Roll over image to zoom in</span> <img class="zoomImg"
                                                                                                          src="images/product4.jpg"
                                                                                                          alt="thumbnail">
@@ -51,7 +55,8 @@
                                         <li class="moreview_thumb thumb_3"><img class="moreview_thumb_image"
                                                                                 src="{% static 'app/products-images/product1.jpg' %}"
                                                                                 alt="thumbnail"> <img
-                                                class="moreview_source_image" src="{% static 'app/products-images/product1.jpg' %}" alt="">
+                                                class="moreview_source_image"
+                                                src="{% static 'app/products-images/product1.jpg' %}" alt="">
                                             <span class="roll-over">Roll over image to zoom in</span> <img
                                                     class="zoomImg"
                                                     src="{% static 'app/products-images/product1.jpg' %}"
@@ -60,7 +65,8 @@
                                         <li class="moreview_thumb thumb_4"><img class="moreview_thumb_image"
                                                                                 src="{% static 'app/products-images/product1.jpg' %}"
                                                                                 alt="thumbnail"> <img
-                                                class="moreview_source_image" src="{% static 'app/products-images/product1.jpg' %}" alt="">
+                                                class="moreview_source_image"
+                                                src="{% static 'app/products-images/product1.jpg' %}" alt="">
                                             <span class="roll-over">Roll over image to zoom in</span> <img
                                                     class="zoomImg"
                                                     src="{% static 'app/products-images/product1.jpg' %}"
@@ -69,7 +75,8 @@
                                         <li class="moreview_thumb thumb_5"><img class="moreview_thumb_image"
                                                                                 src="{% static 'app/products-images/product1.jpg' %}"
                                                                                 alt="thumbnail"> <img
-                                                class="moreview_source_image" src="{% static 'app/products-images/product1.jpg' %}" alt="">
+                                                class="moreview_source_image"
+                                                src="{% static 'app/products-images/product1.jpg' %}" alt="">
                                             <span class="roll-over">Roll over image to zoom in</span> <img
                                                     class="zoomImg"
                                                     src="{% static 'app/products-images/product1.jpg' %}"
@@ -78,7 +85,8 @@
                                         <li class="moreview_thumb thumb_6"><img class="moreview_thumb_image"
                                                                                 src="{% static 'app/products-images/product1.jpg' %}"
                                                                                 alt="thumbnail"> <img
-                                                class="moreview_source_image" src="{% static 'app/products-images/product1.jpg' %}" alt="">
+                                                class="moreview_source_image"
+                                                src="{% static 'app/products-images/product1.jpg' %}" alt="">
                                             <span class="roll-over">Roll over image to zoom in</span> <img
                                                     class="zoomImg"
                                                     src="{% static 'app/products-images/product1.jpg' %}"
@@ -145,9 +153,10 @@
                                             <div class="email-addto-box">
                                                 <ul class="add-to-links">
                                                     <li><a class="link-wishlist"
-                                                           href="wishlist.html"><span>Add to Wishlist</span></a></li>
+                                                           href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a>
+                                                    </li>
                                                     <li><span class="separator">|</span> <a class="link-compare"
-                                                                                            href="compare.html"><span>Add to Compare</span></a>
+                                                                                            href="{% url 'compare_page' %}"><span>Add to Compare</span></a>
                                                     </li>
                                                 </ul>
                                                 <p class="email-friend"><a href="#"
@@ -589,16 +598,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product'%}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -651,16 +662,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product'%}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -701,7 +714,8 @@
                                                                                                title="Sample Product"
                                                                                                href="{% url 'product_detail' %}">
                                                                 <img alt="a" class="img-responsive"
-                                                                     src="{% static 'app/products-images/product1.jpg' %}"> </a>
+                                                                     src="{% static 'app/products-images/product1.jpg' %}">
+                                                            </a>
                                                                 <div class="hover_fly"><a
                                                                         class="exclusive ajax_add_to_cart_button"
                                                                         href="#"
@@ -709,16 +723,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product'%}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -759,7 +775,8 @@
                                                                                                title="Sample Product"
                                                                                                href="{% url 'product_detail' %}">
                                                                 <img alt="a" class="img-responsive"
-                                                                     src="{% static 'app/products-images/product1.jpg' %}"> </a>
+                                                                     src="{% static 'app/products-images/product1.jpg' %}">
+                                                            </a>
                                                                 <div class="hover_fly"><a
                                                                         class="exclusive ajax_add_to_cart_button"
                                                                         href="#"
@@ -767,16 +784,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product'%}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -821,7 +840,8 @@
                                                                                                title="Sample Product"
                                                                                                href="{% url 'product_detail' %}">
                                                                 <img alt="a" class="img-responsive"
-                                                                     src="{% static 'app/products-images/product1.jpg' %}"> </a>
+                                                                     src="{% static 'app/products-images/product1.jpg' %}">
+                                                            </a>
                                                                 <div class="hover_fly"><a
                                                                         class="exclusive ajax_add_to_cart_button"
                                                                         href="#"
@@ -829,16 +849,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product'%}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -883,7 +905,8 @@
                                                                                                title="Sample Product"
                                                                                                href="{% url 'product_detail' %}">
                                                                 <img alt="a" class="img-responsive"
-                                                                     src="{% static 'app/products-images/product1.jpg' %}"> </a>
+                                                                     src="{% static 'app/products-images/product1.jpg' %}">
+                                                            </a>
                                                                 <div class="hover_fly"><a
                                                                         class="exclusive ajax_add_to_cart_button"
                                                                         href="#"
@@ -891,16 +914,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product'%}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -941,7 +966,8 @@
                                                                                                title="Sample Product"
                                                                                                href="{% url 'product_detail' %}">
                                                                 <img alt="a" class="img-responsive"
-                                                                     src="{% static 'app/products-images/product1.jpg' %}"> </a>
+                                                                     src="{% static 'app/products-images/product1.jpg' %}">
+                                                            </a>
                                                                 <div class="hover_fly"><a
                                                                         class="exclusive ajax_add_to_cart_button"
                                                                         href="#"
@@ -949,16 +975,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product' %}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -999,7 +1027,8 @@
                                                                                                title="Sample Product"
                                                                                                href="{% url 'product_detail' %}">
                                                                 <img alt="a" class="img-responsive"
-                                                                     src="{% static 'app/products-images/product1.jpg' %}"> </a>
+                                                                     src="{% static 'app/products-images/product1.jpg' %}">
+                                                            </a>
                                                                 <div class="hover_fly"><a
                                                                         class="exclusive ajax_add_to_cart_button"
                                                                         href="#"
@@ -1007,16 +1036,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product' %}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -1081,16 +1112,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product' %}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -1143,16 +1176,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product' %}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -1193,7 +1228,8 @@
                                                                                                title="Sample Product"
                                                                                                href="{% url 'product_detail' %}">
                                                                 <img alt="a" class="img-responsive"
-                                                                     src="{% static 'app/products-images/product1.jpg' %}"> </a>
+                                                                     src="{% static 'app/products-images/product1.jpg' %}">
+                                                            </a>
                                                                 <div class="hover_fly"><a
                                                                         class="exclusive ajax_add_to_cart_button"
                                                                         href="#"
@@ -1201,16 +1237,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product' %}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -1251,7 +1289,8 @@
                                                                                                title="Sample Product"
                                                                                                href="{% url 'product_detail' %}">
                                                                 <img alt="a" class="img-responsive"
-                                                                     src="{% static 'app/products-images/product1.jpg' %}"> </a>
+                                                                     src="{% static 'app/products-images/product1.jpg' %}">
+                                                            </a>
                                                                 <div class="hover_fly"><a
                                                                         class="exclusive ajax_add_to_cart_button"
                                                                         href="#"
@@ -1259,16 +1298,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product' %}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -1313,7 +1354,8 @@
                                                                                                title="Sample Product"
                                                                                                href="{% url 'product_detail' %}">
                                                                 <img alt="a" class="img-responsive"
-                                                                     src="{% static 'app/products-images/product1.jpg' %}"> </a>
+                                                                     src="{% static 'app/products-images/product1.jpg' %}">
+                                                            </a>
                                                                 <div class="hover_fly"><a
                                                                         class="exclusive ajax_add_to_cart_button"
                                                                         href="#"
@@ -1321,16 +1363,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product' %}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -1375,7 +1419,8 @@
                                                                                                title="Sample Product"
                                                                                                href="{% url 'product_detail' %}">
                                                                 <img alt="a" class="img-responsive"
-                                                                     src="{% static 'app/products-images/product1.jpg' %}"> </a>
+                                                                     src="{% static 'app/products-images/product1.jpg' %}">
+                                                            </a>
                                                                 <div class="hover_fly"><a
                                                                         class="exclusive ajax_add_to_cart_button"
                                                                         href="#"
@@ -1383,16 +1428,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product' %}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -1433,7 +1480,8 @@
                                                                                                title="Sample Product"
                                                                                                href="{% url 'product_detail' %}">
                                                                 <img alt="a" class="img-responsive"
-                                                                     src="{% static 'app/products-images/product1.jpg' %}"> </a>
+                                                                     src="{% static 'app/products-images/product1.jpg' %}">
+                                                            </a>
                                                                 <div class="hover_fly"><a
                                                                         class="exclusive ajax_add_to_cart_button"
                                                                         href="#"
@@ -1441,16 +1489,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product' %}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>
@@ -1491,7 +1541,8 @@
                                                                                                title="Sample Product"
                                                                                                href="{% url 'product_detail' %}">
                                                                 <img alt="a" class="img-responsive"
-                                                                     src="{% static 'app/products-images/product1.jpg' %}"> </a>
+                                                                     src="{% static 'app/products-images/product1.jpg' %}">
+                                                            </a>
                                                                 <div class="hover_fly"><a
                                                                         class="exclusive ajax_add_to_cart_button"
                                                                         href="#"
@@ -1499,16 +1550,18 @@
                                                                     <div>
                                                                         <i class="icon-shopping-cart"></i><span>Add to cart</span>
                                                                     </div>
-                                                                </a> <a class="quick-view" href="{% url 'quick_view_product' %}">
+                                                                </a> <a class="quick-view"
+                                                                        href="{% url 'quick_view_product' %}">
                                                                     <div>
                                                                         <i class="icon-eye-open"></i><span>Quick view</span>
                                                                     </div>
-                                                                </a> <a class="add_to_compare" href="compare.html">
+                                                                </a> <a class="add_to_compare"
+                                                                        href="{% url 'compare_page' %}">
                                                                     <div>
                                                                         <i class="icon-random"></i><span>Add to compare</span>
                                                                     </div>
                                                                 </a> <a class="addToWishlist wishlistProd_5"
-                                                                        href="wishlist.html">
+                                                                        href="{% url 'my_wishlist_page' %}">
                                                                     <div>
                                                                         <i class="icon-heart"></i><span>Add to Wishlist</span>
                                                                     </div>

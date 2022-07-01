@@ -28,7 +28,7 @@
                     <div class="category-products">
                         <div class="toolbar">
                             <div class="sorter">
-                                <div class="view-mode"><a href="grid.html" title="Grid"
+                                <div class="view-mode"><a href="{% url 'product_list' %}" title="Grid"
                                                           class="button button-grid">Grid</a>&nbsp;
                                     <span title="List" class="button button-active button-list">List</span>&nbsp;
                                 </div>
@@ -81,7 +81,7 @@
                                                                                                      width="230"> </a>
                                 </div>
                                 <div class="product-shop">
-                                    <h2 class="product-name"><a title=" Sample Product" href="product_detail.html">
+                                    <h2 class="product-name"><a title=" Sample Product" href="{% url 'product_detail' %}">
                                         Sample
                                         Product </a></h2>
                                     <div class="price-box">
@@ -113,9 +113,9 @@
                                         </button>
                                         <span class="add-to-links"> <a title="Add to Wishlist"
                                                                        class="button link-wishlist"
-                                                                       href="wishlist.html"><span>Add to Wishlist</span></a> <a
+                                                                       href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
                                                 title="Add to Compare" class="button link-compare"
-                                                href="compare.html"><span>Add to Compare</span></a> </span></div>
+                                                href="{% url 'compare_page' %}"><span>Add to Compare</span></a> </span></div>
                                 </div>
                             </li>
                             <li class="item even">
@@ -127,7 +127,7 @@
                                         width="230"> </a>
                                 </div>
                                 <div class="product-shop">
-                                    <h2 class="product-name"><a title=" Sample Product" href="product_detail.html">
+                                    <h2 class="product-name"><a title=" Sample Product" href="{% url 'product_detail' %}">
                                         Sample
                                         Product </a></h2>
                                     <div class="price-box"><span class="regular-price" id="product-price-159"> <span
@@ -147,9 +147,9 @@
                                         </button>
                                         <span class="add-to-links"> <a title="Add to Wishlist"
                                                                        class="button link-wishlist"
-                                                                       href="wishlist.html"><span>Add to Wishlist</span></a> <a
+                                                                       href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
                                                 title="Add to Compare" class="button link-compare"
-                                                href="compare.html"><span>Add to Compare</span></a> </span></div>
+                                                href="{% url 'compare_page' %}"><span>Add to Compare</span></a> </span></div>
                                 </div>
                             </li>
                             <li class="item odd">
@@ -158,7 +158,7 @@
                                         class="small-image" src="products-images/product1.jpg"
                                         alt="30&quot; Flat-Panel HD Monitor" width="230"> </a></div>
                                 <div class="product-shop">
-                                    <h2 class="product-name"><a title=" Sample Product" href="product_detail.html">
+                                    <h2 class="product-name"><a title=" Sample Product" href="{% url 'product_detail' %}">
                                         Sample
                                         Product </a></h2>
                                     <div class="price-box"><span class="regular-price" id="product-price-157"> <span
@@ -179,9 +179,9 @@
                                         </button>
                                         <span class="add-to-links"> <a title="Add to Wishlist"
                                                                        class="button link-wishlist"
-                                                                       href="wishlist.html"><span>Add to Wishlist</span></a> <a
+                                                                       href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
                                                 title="Add to Compare" class="button link-compare"
-                                                href="compare.html"><span>Add to Compare</span></a> </span></div>
+                                                href="{% url 'compare_page' %}"><span>Add to Compare</span></a> </span></div>
                                 </div>
                             </li>
                             <li class="item even">
@@ -190,7 +190,7 @@
                                         class="small-image" src="products-images/product1.jpg"
                                         alt="19&quot; Widescreen LCD Monitor" width="230"> </a></div>
                                 <div class="product-shop">
-                                    <h2 class="product-name"><a title=" Sample Product" href="product_detail.html">
+                                    <h2 class="product-name"><a title=" Sample Product" href="{% url 'product_detail' %}">
                                         Sample
                                         Product </a></h2>
                                     <div class="price-box"><span class="regular-price" id="product-price-156"> <span
@@ -208,9 +208,9 @@
                                         </button>
                                         <span class="add-to-links"> <a title="Add to Wishlist"
                                                                        class="button link-wishlist"
-                                                                       href="wishlist.html"><span>Add to Wishlist</span></a> <a
+                                                                       href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
                                                 title="Add to Compare" class="button link-compare"
-                                                href="compare.html"><span>Add to Compare</span></a> </span></div>
+                                                href="{% url 'compare_page' %}"><span>Add to Compare</span></a> </span></div>
                                 </div>
                             </li>
                             <li class="item odd">
@@ -218,7 +218,7 @@
                                         class="small-image" src="products-images/product1.jpg" alt="Seagate 250GB HD "
                                         width="230"> </a></div>
                                 <div class="product-shop">
-                                    <h2 class="product-name"><a title=" Sample Product" href="product_detail.html">
+                                    <h2 class="product-name"><a title=" Sample Product" href="{% url 'product_detail' %}">
                                         Sample
                                         Product </a></h2>
                                     <div class="price-box"><span class="regular-price" id="product-price-155"> <span
@@ -238,9 +238,9 @@
                                         </button>
                                         <span class="add-to-links"> <a title="Add to Wishlist"
                                                                        class="button link-wishlist"
-                                                                       href="wishlist.html"><span>Add to Wishlist</span></a> <a
+                                                                       href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
                                                 title="Add to Compare" class="button link-compare"
-                                                href="compare.html"><span>Add to Compare</span></a> </span></div>
+                                                href="{% url 'compare_page' %}"><span>Add to Compare</span></a> </span></div>
                                 </div>
                             </li>
                             <li class="item even">
@@ -248,7 +248,7 @@
                                         class="small-image" src="products-images/product1.jpg" alt="Seagate 500GB HD"
                                         width="230"> </a></div>
                                 <div class="product-shop">
-                                    <h2 class="product-name"><a title=" Sample Product" href="product_detail.html">
+                                    <h2 class="product-name"><a title=" Sample Product" href="{% url 'product_detail' %}">
                                         Sample
                                         Product </a></h2>
                                     <div class="price-box"><span class="regular-price" id="product-price-154"> <span
@@ -267,9 +267,9 @@
                                         </button>
                                         <span class="add-to-links"> <a title="Add to Wishlist"
                                                                        class="button link-wishlist"
-                                                                       href="wishlist.html"><span>Add to Wishlist</span></a> <a
+                                                                       href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
                                                 title="Add to Compare" class="button link-compare"
-                                                href="compare.html"><span>Add to Compare</span></a> </span></div>
+                                                href="{% url 'compare_page' %}"><span>Add to Compare</span></a> </span></div>
                                 </div>
                             </li>
                             <li class="item odd">
@@ -281,7 +281,7 @@
                                         width="230"> </a>
                                 </div>
                                 <div class="product-shop">
-                                    <h2 class="product-name"><a title=" Sample Product" href="product_detail.html">
+                                    <h2 class="product-name"><a title=" Sample Product" href="{% url 'product_detail' %}">
                                         Sample
                                         Product </a></h2>
                                     <div class="price-box"><span class="regular-price" id="product-price-153"> <span
@@ -300,9 +300,9 @@
                                         </button>
                                         <span class="add-to-links"> <a title="Add to Wishlist"
                                                                        class="button link-wishlist"
-                                                                       href="wishlist.html"><span>Add to Wishlist</span></a> <a
+                                                                       href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
                                                 title="Add to Compare" class="button link-compare"
-                                                href="compare.html"><span>Add to Compare</span></a> </span></div>
+                                                href="{% url 'compare_page' %}"><span>Add to Compare</span></a> </span></div>
                                 </div>
                             </li>
                             <li class="item even">
@@ -311,7 +311,7 @@
                                         class="small-image" src="products-images/product1.jpg"
                                         alt="24&quot; Widescreen LCD Monitor" width="230"> </a></div>
                                 <div class="product-shop">
-                                    <h2 class="product-name"><a title=" Sample Product" href="product_detail.html">
+                                    <h2 class="product-name"><a title=" Sample Product" href="{% url 'product_detail' %}">
                                         Sample
                                         Product </a></h2>
                                     <div class="price-box"><span class="regular-price" id="product-price-152"> <span
@@ -330,9 +330,9 @@
                                         </button>
                                         <span class="add-to-links"> <a title="Add to Wishlist"
                                                                        class="button link-wishlist"
-                                                                       href="wishlist.html"><span>Add to Wishlist</span></a> <a
+                                                                       href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
                                                 title="Add to Compare" class="button link-compare"
-                                                href="compare.html"><span>Add to Compare</span></a> </span></div>
+                                                href="{% url 'compare_page' %}"><span>Add to Compare</span></a> </span></div>
                                 </div>
                             </li>
                             <li class="item odd">
@@ -344,7 +344,7 @@
                                         width="230"> </a>
                                 </div>
                                 <div class="product-shop">
-                                    <h2 class="product-name"><a title=" Sample Product" href="product_detail.html">
+                                    <h2 class="product-name"><a title=" Sample Product" href="{% url 'product_detail' %}">
                                         Sample
                                         Product </a></h2>
                                     <div class="price-box"><span class="regular-price" id="product-price-160"> <span
@@ -365,9 +365,9 @@
                                         </button>
                                         <span class="add-to-links"> <a title="Add to Wishlist"
                                                                        class="button link-wishlist"
-                                                                       href="wishlist.html"><span>Add to Wishlist</span></a> <a
+                                                                       href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
                                                 title="Add to Compare" class="button link-compare"
-                                                href="compare.html"><span>Add to Compare</span></a> </span></div>
+                                                href="{% url 'compare_page' %}"><span>Add to Compare</span></a> </span></div>
                                 </div>
                             </li>
                             <li class="item last even">
@@ -375,7 +375,7 @@
                                         class="small-image" src="products-images/product1.jpg"
                                         alt="Logitech diNovo Edge Keyboard" width="230"> </a></div>
                                 <div class="product-shop">
-                                    <h2 class="product-name"><a title=" Sample Product" href="product_detail.html">
+                                    <h2 class="product-name"><a title=" Sample Product" href="{% url 'product_detail' %}">
                                         Sample
                                         Product </a></h2>
                                     <div class="price-box"><span class="regular-price" id="product-price-161"> <span
@@ -402,9 +402,9 @@
                                         </button>
                                         <span class="add-to-links"> <a title="Add to Wishlist"
                                                                        class="button link-wishlist"
-                                                                       href="wishlist.html"><span>Add to Wishlist</span></a> <a
+                                                                       href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
                                                 title="Add to Compare" class="button link-compare"
-                                                href="compare.html"><span>Add to Compare</span></a> </span></div>
+                                                href="{% url 'compare_page' %}"><span>Add to Compare</span></a> </span></div>
                                 </div>
                             </li>
                         </ol>
@@ -417,89 +417,89 @@
                         <!-- BEGIN BOX-CATEGORY -->
                         <div class="box-content box-category">
                             <ul>
-                                <li class="active"><a href="grid.html">Women</a> <span class="subDropdown minus"></span>
+                                <li class="active"><a href="{% url 'product_list' %}">Women</a> <span class="subDropdown minus"></span>
                                     <ul class="level0_415">
-                                        <li><a href="grid.html"> Tops </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Tops </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Evening Tops </a></li>
-                                                <li><a href="grid.html"> Shirts &amp; Blouses </a></li>
-                                                <li><a href="grid.html"> Tunics </a></li>
-                                                <li><a href="grid.html"> Vests </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Evening Tops </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Shirts &amp; Blouses </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Tunics </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Vests </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
                                         </li>
                                         <!--level1-->
-                                        <li><a href="grid.html"> Bags </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Bags </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Bags </a></li>
-                                                <li><a href="grid.html"> Designer Handbags </a></li>
-                                                <li><a href="grid.html"> Purses </a></li>
-                                                <li><a href="grid.html"> Shoulder Bags </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Bags </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Designer Handbags </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Purses </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Shoulder Bags </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
                                         </li>
                                         <!--level1-->
-                                        <li><a href="grid.html"> Shoes </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Shoes </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Flat Shoes </a></li>
-                                                <li><a href="grid.html"> Flat Sandals </a></li>
-                                                <li><a href="grid.html"> Boots </a></li>
-                                                <li><a href="grid.html"> Heels </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Flat Shoes </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Flat Sandals </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Boots </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Heels </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
                                         </li>
                                         <!--level1-->
-                                        <li><a href="grid.html"> Jewellery </a>
+                                        <li><a href="{% url 'product_list' %}"> Jewellery </a>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Bracelets </a></li>
-                                                <li><a href="grid.html"> Necklaces &amp; Pendants </a></li>
-                                                <li><a href="grid.html"> Pins &amp; Brooches </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Bracelets </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Necklaces &amp; Pendants </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Pins &amp; Brooches </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
                                         </li>
                                         <!--level1-->
-                                        <li><a href="grid.html"> Dresses </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Dresses </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Casual Dresses </a></li>
-                                                <li><a href="grid.html"> Evening </a></li>
-                                                <li><a href="grid.html"> Designer </a></li>
-                                                <li><a href="grid.html"> Party </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Casual Dresses </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Evening </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Designer </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Party </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
                                         </li>
                                         <!--level1-->
-                                        <li><a href="grid.html"> Lingerie </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Lingerie </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Bras </a></li>
-                                                <li><a href="grid.html"> Bodies </a></li>
-                                                <li><a href="grid.html"> Lingerie Sets </a></li>
-                                                <li><a href="grid.html"> Shapewear </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Bras </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Bodies </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Lingerie Sets </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Shapewear </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
                                         </li>
                                         <!--level1-->
-                                        <li><a href="grid.html"> Jackets </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Jackets </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Coats </a></li>
-                                                <li><a href="grid.html"> Jackets </a></li>
-                                                <li><a href="grid.html"> Leather Jackets </a></li>
-                                                <li><a href="grid.html"> Blazers </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Coats </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Jackets </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Leather Jackets </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Blazers </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
                                         </li>
                                         <!--level1-->
-                                        <li><a href="grid.html"> Swimwear </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Swimwear </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Swimsuits </a></li>
-                                                <li><a href="grid.html"> Beach Clothing </a></li>
-                                                <li><a href="grid.html"> Bikinis </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Swimsuits </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Beach Clothing </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Bikinis </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
@@ -509,54 +509,54 @@
                                     <!--level0-->
                                 </li>
                                 <!--level 0-->
-                                <li><a href="grid.html">Men</a> <span class="subDropdown plus"></span>
+                                <li><a href="{% url 'product_list' %}">Men</a> <span class="subDropdown plus"></span>
                                     <ul class="level0_455">
-                                        <li><a href="grid.html"> Shoes </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Shoes </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Flat Shoes </a></li>
-                                                <li><a href="grid.html"> Boots </a></li>
-                                                <li><a href="grid.html"> Heels </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Flat Shoes </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Boots </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Heels </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
                                         </li>
                                         <!--level1-->
-                                        <li><a href="grid.html"> Jewellery </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Jewellery </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Bracelets </a></li>
-                                                <li><a href="grid.html"> Necklaces &amp; Pendants </a></li>
-                                                <li><a href="grid.html"> Pins &amp; Brooches </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Bracelets </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Necklaces &amp; Pendants </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Pins &amp; Brooches </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
                                         </li>
                                         <!--level1-->
-                                        <li><a href="grid.html"> Dresses </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Dresses </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Casual Dresses </a></li>
-                                                <li><a href="grid.html"> Evening </a></li>
-                                                <li><a href="grid.html"> Designer </a></li>
-                                                <li><a href="grid.html"> Party </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Casual Dresses </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Evening </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Designer </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Party </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
                                         </li>
                                         <!--level1-->
-                                        <li><a href="grid.html"> Jackets </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Jackets </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Coats </a></li>
-                                                <li><a href="grid.html"> Jackets </a></li>
-                                                <li><a href="grid.html"> Leather Jackets </a></li>
-                                                <li><a href="grid.html"> Blazers </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Coats </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Jackets </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Leather Jackets </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Blazers </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
                                         </li>
                                         <!--level1-->
-                                        <li><a href="grid.html"> Swimwear </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Swimwear </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Swimsuits </a></li>
-                                                <li><a href="grid.html"> Beach Clothing </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Swimsuits </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Beach Clothing </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
@@ -566,39 +566,39 @@
                                     <!--level0-->
                                 </li>
                                 <!--level 0-->
-                                <li><a href="grid.html">Electronics</a> <span class="subDropdown plus"></span>
+                                <li><a href="{% url 'product_list' %}">Electronics</a> <span class="subDropdown plus"></span>
                                     <ul class="level0_482">
-                                        <li><a href="grid.html"> Smartphones </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Smartphones </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Samsung </a></li>
-                                                <li><a href="grid.html"> Apple </a></li>
-                                                <li><a href="grid.html"> Blackberry </a></li>
-                                                <li><a href="grid.html"> Nokia </a></li>
-                                                <li><a href="grid.html"> HTC </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Samsung </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Apple </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Blackberry </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Nokia </a></li>
+                                                <li><a href="{% url 'product_list' %}"> HTC </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
                                         </li>
                                         <!--level1-->
-                                        <li><a href="grid.html"> Cameras </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Cameras </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> Digital Cameras </a></li>
-                                                <li><a href="grid.html"> Camcorders </a></li>
-                                                <li><a href="grid.html"> Lenses </a></li>
-                                                <li><a href="grid.html"> Filters </a></li>
-                                                <li><a href="grid.html"> Tripod </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Digital Cameras </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Camcorders </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Lenses </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Filters </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Tripod </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
                                         </li>
                                         <!--level1-->
-                                        <li><a href="grid.html"> Accesories </a> <span class="subDropdown plus"></span>
+                                        <li><a href="{% url 'product_list' %}"> Accesories </a> <span class="subDropdown plus"></span>
                                             <ul class="level1">
-                                                <li><a href="grid.html"> HeadSets </a></li>
-                                                <li><a href="grid.html"> Batteries </a></li>
-                                                <li><a href="grid.html"> Screen Protectors </a></li>
-                                                <li><a href="grid.html"> Memory Cards </a></li>
-                                                <li><a href="grid.html"> Cases </a></li>
+                                                <li><a href="{% url 'product_list' %}"> HeadSets </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Batteries </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Screen Protectors </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Memory Cards </a></li>
+                                                <li><a href="{% url 'product_list' %}"> Cases </a></li>
                                                 <!--end for-each -->
                                             </ul>
                                             <!--level1-->
@@ -608,9 +608,9 @@
                                     <!--level0-->
                                 </li>
                                 <!--level 0-->
-                                <li><a href="grid.html">Digital</a></li>
+                                <li><a href="{% url 'product_list' %}">Digital</a></li>
                                 <!--level 0-->
-                                <li class="last"><a href="grid.html">Fashion</a></li>
+                                <li class="last"><a href="{% url 'product_list' %}">Fashion</a></li>
                                 <!--level 0-->
                             </ul>
                         </div>
