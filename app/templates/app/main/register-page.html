@@ -1,5 +1,7 @@
 {% extends 'app/auth/base.html' %}
 {% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
 
@@ -59,64 +61,117 @@
 {% block body_main %}
     <body>
 
-<!-- ===============================================-->
-<!--    Main Content-->
-<!-- ===============================================-->
-<main class="main" id="top">
-    <div class="container-fluid">
-        <div class="row min-vh-100 flex-center g-0">
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+        <div class="container-fluid">
+            <div class="row min-vh-100 flex-center g-0">
 
-            <div class="card overflow-hidden z-index-1">
-                <div class="card-body p-0">
-                    <div class="row g-0 h-100">
-                        <div class="col-md-4 col-md-offset-4 d-flex flex-center">
-                            <div class="p-4 p-md-5 flex-grow-1">
-                                <h3>Register</h3>
-                                <form>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="card-name">Name</label>
-                                        <input class="form-control" type="text" autocomplete="on" id="card-name"/>
+                <div class="card overflow-hidden z-index-1">
+                    <div class="card-body p-0">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-4 col-md-offset-4 d-flex flex-center">
+                                <div class="p-4 p-md-5 flex-grow-1">
+                                    <div class="position-relative mt-4" style="color : RED">
+                                        <p>
+                                            {% if messages %}
+                                                {% for message in messages %}
+                                                    <p>{{ message }}</p>
+                                                {% endfor %}
+                                            {% endif %}
+
+                                        {% if form.errors %}
+                                            <p>{{ form.errors }}</p>
+                                        {% endif %}
+                                        </p>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="card-email">Email address</label>
-                                        <input class="form-control" type="email" autocomplete="on" id="card-email"/>
-                                    </div>
-                                    <div class="row gx-2">
-                                        <div class="mb-3 col-sm-6">
-                                            <label class="form-label" for="card-password">Password</label>
-                                            <input class="form-control" type="password" autocomplete="on"
-                                                   id="card-password"/>
+                                    <h3>Register</h3>
+                                    <form method="post" action="{% url 'register_page' %}">
+                                        {% csrf_token %}
+                                        <div class="mb-3">
+                                            <label class="form-label" for="card-name">Name</label>
+                                            <input class="form-control" type="text" name="username" autocomplete="on"
+                                                   id="card-name"/>
                                         </div>
-                                        <div class="mb-3 col-sm-6">
-                                            <label class="form-label" for="card-confirm-password">Confirm
-                                                Password</label>
-                                            <input class="form-control" type="password" autocomplete="on"
-                                                   id="card-confirm-password"/>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="card-email">Email address</label>
+                                            <input class="form-control" type="email" name="email" autocomplete="on"
+                                                   id="card-email"/>
                                         </div>
+                                        <div class="row gx-2">
+                                            <div class="mb-3 col-sm-6">
+                                                <label class="form-label" for="card-password">Password</label>
+                                                <input class="form-control" name="password" type="password"
+                                                       autocomplete="on"
+                                                       id="card-password"/>
+                                            </div>
+                                            <div class="mb-3 col-sm-6">
+                                                <label class="form-label" for="card-confirm-password">Confirm
+                                                    Password</label>
+                                                <input class="form-control" name="confirm_password" type="password"
+                                                       autocomplete="on"
+                                                       id="card-confirm-password"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"
+                                                   id="card-register-checkbox"/>
+                                            <label class="form-label" for="card-register-checkbox">I accept the <a
+                                                    href="#!">terms </a>and <a href="#!">privacy policy</a></label>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button class="btn btn-primary d-block w-100 mt-3" type="submit"
+                                                    name="submit">
+                                                Register
+                                            </button>
+                                        </div>
+                                    </form>
+
+                                    <div class="position-relative mt-4">
+                                        <hr class="bg-300"/>
+                                        <div class="divider-content-center">or register with</div>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="card-register-checkbox"/>
-                                        <label class="form-label" for="card-register-checkbox">I accept the <a
-                                                href="#!">terms </a>and <a href="#!">privacy policy</a></label>
-                                    </div>
-                                    <div class="mb-3">
-                                        <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">
-                                            Register
-                                        </button>
-                                    </div>
-                                </form>
-                                <div class="position-relative mt-4">
-                                    <hr class="bg-300"/>
-                                    <div class="divider-content-center">or register with</div>
-                                </div>
-                                <div class="row g-2 mt-2">
-                                    <div class="col-sm-6"><a class="btn btn-outline-google-plus btn-sm d-block w-100"
-                                                             href="#"><span class="fab fa-google-plus-g me-2"
-                                                                            data-fa-transform="grow-8"></span>
-                                        google</a></div>
-                                    <div class="col-sm-6"><a class="btn btn-outline-facebook btn-sm d-block w-100"
-                                                             href="#"><span class="fab fa-facebook-square me-2"
-                                                                            data-fa-transform="grow-8"></span> facebook</a>
+                                    <div class="row g-2 mt-2">
+                                        <form action="/accounts/google/login/" method="post">
+                                            {% csrf_token %}
+                                            <button class="btn btn-outline-google-plus btn-sm d-block w-100" href="#">
+                                <span class="fab fa-google-plus-g me-2" data-fa-transform="grow-8">
+                                </span> google
+                                            </button>
+                                        </form>
+                                        <form action="{% url 'social:begin' 'facebook' %}" method="post">
+                                            {% csrf_token %}
+                                            <button class="btn btn-outline-google-plus btn-sm d-block w-100" href="#">
+                                                <span class="fa-brands fa-facebook-f data-fa-transform="
+                                                      data-fa-transform=" grow-8">
+                                                </span> facebook
+                                            </button>
+                                        </form>
+                                        {##}
+                                        {#                                        <form action="{% url "social:begin" "twitter" %}" method="post">#}
+                                        {#                                            {% csrf_token %}#}
+                                        {#                                            <button class="btn btn-outline-google-plus btn-sm d-block w-100" href="#">#}
+                                        {#                                                <span class="fa-brands fa-facebook-f data-fa-transform=" data-fa-transform="grow-8">#}
+                                        {#                                                </span> twitter#}
+                                        {#                                            </button>#}
+                                        {#                                        </form>#}
+                                        {##}
+                                        {#                                        <form action="{% url 'social:begin' 'github' %}" method="post">#}
+                                        {#                                            {% csrf_token %}#}
+                                        {#                                            <button class="btn btn-outline-google-plus btn-sm d-block w-100" href="#">#}
+                                        {#                                                <span class="fa-brands fa-facebook-f data-fa-transform=" data-fa-transform="grow-8">#}
+                                        {#                                                </span> github#}
+                                        {#                                            </button>#}
+                                        {#                                        </form>#}
+                                        <form action="{% url 'social:begin' 'github' %}" method="post">
+                                            {% csrf_token %}
+                                            <button class="btn btn-outline-google-plus btn-sm d-block w-100" href="#">
+                                <span class="fab fa-google-plus-g me-2" data-fa-transform="grow-8">
+                                </span> github
+                                            </button>
+                                        </form>
+
                                     </div>
                                 </div>
                             </div>
@@ -125,26 +180,25 @@
                 </div>
             </div>
         </div>
-    </div>
-</main>
-<!-- ===============================================-->
-<!--    End of Main Content-->
-<!-- ===============================================-->
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
 
-<!-- ===============================================-->
-<!--    JavaScripts-->
-<!-- ===============================================-->
-<script src="{% static 'app/vendors/popper/popper.min.js' %}"></script>
-<script src="{% static 'app/vendors/bootstrap/bootstrap.min.js' %}"></script>
-<script src="{% static 'app/vendors/anchorjs/anchor.min.js' %}"></script>
-<script src="{% static 'app/vendors/is/is.min.js' %}"></script>
-<script src="{% static 'app/vendors/fontawesome/all.min.js' %}"></script>
-<script src="{% static 'app/vendors/lodash/lodash.min.js' %}"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-<script src="{% static 'app/vendors/list.js/list.min.js' %}"></script>
-<script src="{% static 'app/assets/js/theme.js' %}"></script>
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="{% static 'app/vendors/popper/popper.min.js' %}"></script>
+    <script src="{% static 'app/vendors/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'app/vendors/anchorjs/anchor.min.js' %}"></script>
+    <script src="{% static 'app/vendors/is/is.min.js' %}"></script>
+    <script src="{% static 'app/vendors/fontawesome/all.min.js' %}"></script>
+    <script src="{% static 'app/vendors/lodash/lodash.min.js' %}"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="{% static 'app/vendors/list.js/list.min.js' %}"></script>
+    <script src="{% static 'app/assets/js/theme.js' %}"></script>
 
-</body>
+    </body>
 {% endblock %}
 
 

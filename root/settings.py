@@ -35,7 +35,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app.apps.AppConfig'
+    # 'app.apps.AppConfig'
+    'app',
+    'social_django',
+    'django.contrib.sites',
+    "allauth",  # new
+    "allauth.account",  # new
+    "allauth.socialaccount",
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.telegram',
+    'allauth.socialaccount.providers.github',
 
 ]
 
@@ -47,6 +57,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
+
 ]
 
 ROOT_URLCONF = 'root.urls'
@@ -65,6 +77,7 @@ TEMPLATES = [
             ],
         },
     },
+
 ]
 
 WSGI_APPLICATION = 'root.wsgi.application'
@@ -76,9 +89,9 @@ AUTH_USER_MODEL = 'app.User'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite'
+        'NAME': BASE_DIR / 'db.sqlite',
         # 'USER': 'postgres',
-        # 'PASSWORD': '1234',
+        # 'PASSWORD': 'jasur24',
         # 'HOST': 'localhost',
         # 'PORT': '5432',
     }
@@ -134,7 +147,57 @@ EMAIL_HOST_USER = 'asadbekmirtazayev0@gmail.com'
 EMAIL_HOST_PASSWORD = 'xikcmixdxbukymhv'  # app password
 EMAIL_USE_TLS = True
 
+PASSWORD_RESET_TIMEOUT = 3600
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.github.GithubOAuth2',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
+
+SITE_ID = 1
+
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '856489160437-3qe1ftmu6teq8tchelvs201sdpsdpcri.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        },
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+SOCIAL_AUTH_FACEBOOK_KEY = "428903559128373"
+SOCIAL_AUTH_FACEBOOK_SECRET = "679696f221e1820dc1c735c7c352fe59"
+
+# SOCIAL_AUTH_TWITTER_KEY = 'XXX'
+# SOCIAL_AUTH_TWITTER_SECRET = 'XXX'
+
+SOCIAL_AUTH_GITHUB_KEY = '6de6386452435d10032c'
+SOCIAL_AUTH_GITHUB_SECRET = '23d9f8855f2c1834c8527887491e1188b237ef9f'
+
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
+    ('name', 'name'),
+    ('email', 'email'),
+    ('picture', 'picture'),
+    ('link', 'profile_url'),
+]
+
 LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
-PASSWORD_RESET_TIMEOUT = 3600
+APPEND_SLASH = False
