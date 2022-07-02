@@ -1,12 +1,14 @@
 from django.urls import path
+from patterns import patterns
 
 from app.views import IndexPage, LoginPage, LogoutPage, ProductPage, ProductDetailPage, QuickViewPage, AllProductPage, \
     RegisterPage, FaqPage, ComparePage, AddressPage, ContactUsPage, AboutUsPage, ForgotPasswordPage, MyWishesPage, \
     DashboardPage, ShoppingCardsPage, CheckOutPage, BlogPage, ProductList, BlogDetailsPage, Product_Detail_Page
+from root import settings
 
 urlpatterns = [
     # main url
-    path('', IndexPage, name='index'),
+    path('', IndexPage.as_view(), name='index'),
 
     # auth urls
     path('login/', LoginPage.as_view(), name='login_page'),
