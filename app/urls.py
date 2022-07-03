@@ -19,8 +19,7 @@ urlpatterns = [
     # products url
     path('product-list/', ProductPage.as_view(), name='product_list'),
     path('all-product-list/', AllProductPage.as_view(), name='all_product_list'),
-    path('product-detail/', ProductDetailPage.as_view(), name='product_detail'),
-    path('product-detail/<int:product_id>', Product_Detail_Page, name='product_detail_with_id'),
+    path('product-detail/<int:product_id>', Product_Detail_Page.as_view(), name='product_detail_with_id'),
     path('compare/', ComparePage.as_view(), name='compare_page'),
     path('dashboard/', DashboardPage.as_view(), name='dashboard_page'),
     path('quick-view-product/', QuickViewPage.as_view(), name='quick_view_product'),

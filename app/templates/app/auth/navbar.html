@@ -45,7 +45,8 @@
                     <!-- Header Top Links -->
                     <div class="toplinks">
                         <div class="links">
-                            <div class="myaccount"><a title="My Account" href="{% url 'login_page' %}"><span class="hidden-xs">My Account</span></a>
+                            <div class="myaccount"><a title="My Account" href="{% url 'login_page' %}"><span
+                                    class="hidden-xs">My Account</span></a>
                             </div>
                             <div class="wishlist"><a title="My Wishlist" href="{% url 'dashboard_page' %}"><span
                                     class="hidden-xs">Wishlist</span></a></div>
@@ -55,7 +56,7 @@
                             {% if user.is_authenticated %}
                                 <div class="logout">
                                     <a title="Logout" href="{% url 'logout_page' %}"><span
-                                        class="hidden-xs">Logout</span>
+                                            class="hidden-xs">Logout</span>
                                     </a>
                                 </div>
                             {% else %}
@@ -128,7 +129,7 @@
                                                                                 onClick=""
                                                                                 class="glyphicon glyphicon-remove">&nbsp;</a>
                                                     <a class="glyphicon glyphicon-pencil" title="Edit item" href="#">&nbsp;</a>
-                                                    <p class="product-name"><a href="{% url 'product_detail' %}"
+                                                    <p class="product-name"><a href="#"
                                                                                title="Downloadable Product">Sample
                                                         Product </a></p>
                                                 </div>
@@ -174,6 +175,7 @@
                 <!-- End Top Cart -->
             </div>
         </div>
+    </div>
 </header>
 <nav>
     <div class="container">
@@ -201,28 +203,37 @@
                                             <li class="level1 nav-10-2">
                                                 <a href="{% url 'all_product_list' %}"><span>List</span></a>
                                             </li>
-                                            <li class="level1 nav-10-3"><a href="{% url 'product_detail' %}"> <span>Product Detail</span>
+                                            <li class="level1 nav-10-3"><a href="{% url 'product_detail_with_id' 1 %}">
+                                                <span>Product Detail</span>
                                             </a></li>
-                                            <li class="level1 nav-10-4"><a href="{% url 'shopping_cards_page' %}"> <span>Shopping Cart</span>
+                                            <li class="level1 nav-10-4"><a href="{% url 'shopping_cards_page' %}">
+                                                <span>Shopping Cart</span>
                                             </a></li>
                                             <li class="level1 first"><a
                                                     href="{% url 'check_out_page' %}"><span>Checkout</span></a></li>
                                             <li class="level1 nav-10-4"><a href="{% url 'dashboard_page' %}">
                                                 <span>Wishlist</span> </a></li>
-                                            <li class="level1"><a href="{% url 'dashboard_page' %}"> <span>Dashboard</span> </a>
+                                            <li class="level1"><a href="{% url 'dashboard_page' %}">
+                                                <span>Dashboard</span> </a>
                                             </li>
                                             <li class="level1"><a href="multiple_addresses.html"> <span>Multiple Addresses</span>
                                             </a></li>
-                                            <li class="level1"><a href="{% url 'compare_page' %}"> <span>About us</span> </a>
+                                            <li class="level1"><a href="{% url 'compare_page' %}"> <span>About us</span>
+                                            </a>
                                             </li>
-                                            <li class="level1"><a href="{% url 'compare_page' %}"> <span>Compare</span> </a>
+                                            <li class="level1"><a href="{% url 'compare_page' %}"> <span>Compare</span>
+                                            </a>
                                             </li>
-                                            <li class="level1"><a href="{% url 'faq_page' %}"> <span>FAQ</span> </a></li>
-                                            <li class="level1"><a href="{% url 'login_page' %}"> <span>Login</span> </a></li>
+                                            <li class="level1"><a href="{% url 'faq_page' %}"> <span>FAQ</span> </a>
+                                            </li>
+                                            <li class="level1"><a href="{% url 'login_page' %}"> <span>Login</span> </a>
+                                            </li>
                                             <li class="level1"><a href="{% url 'quick_view_product' %}"> <span>Quick view</span>
                                             </a></li>
-                                            <li class="level1"><a href="{% url 'blog_page' %}"><span>Blog</span></a></li>
-                                            <li class="level1"><a href="{% url 'contact-us-page' %}"><span>Contact us</span></a>
+                                            <li class="level1"><a href="{% url 'blog_page' %}"><span>Blog</span></a>
+                                            </li>
+                                            <li class="level1"><a
+                                                    href="{% url 'contact-us-page' %}"><span>Contact us</span></a>
                                             </li>
                                             <li class="level1"><a
                                                     href="404error.html"><span>404 Error Page</span></a></li>
@@ -492,7 +503,8 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="level0 nav-10 level-top "><a class="level-top" href="{% url 'blog_page' %}">
+                                    <li class="level0 nav-10 level-top "><a class="level-top"
+                                                                            href="{% url 'blog_page' %}">
                                         <span>Custom</span> </a></li>
                                 </ul>
                             </li>
@@ -516,12 +528,16 @@
                     <ul class="level1">
                         <li class="level1 first"><a href="{% url 'product_list' %}"><span>Grid</span></a></li>
                         <li class="level1 nav-10-2"><a href="{% url 'all_product_list' %}"> <span>List</span> </a></li>
-                        <li class="level1 nav-10-3"><a href="{% url 'product_detail' %}"> <span>Product Detail</span> </a>
+                        <li class="level1 nav-10-3"><a href="{% url 'product_detail_with_id' 1 %}">
+                            <span>Product Detail</span> </a>
                         </li>
-                        <li class="level1 nav-10-4"><a href="{% url 'shopping_cards_page' %}"> <span>Shopping Cart</span> </a>
+                        <li class="level1 nav-10-4"><a href="{% url 'shopping_cards_page' %}">
+                            <span>Shopping Cart</span> </a>
                         </li>
-                        <li class="level1 first parent"><a href="{% url 'check_out_page' %}"><span>Checkout</span></a></li>
-                        <li class="level1 nav-10-4"><a href="{% url 'my_wishlist_page' %}"> <span>Wishlist</span> </a></li>
+                        <li class="level1 first parent"><a href="{% url 'check_out_page' %}"><span>Checkout</span></a>
+                        </li>
+                        <li class="level1 nav-10-4"><a href="{% url 'my_wishlist_page' %}"> <span>Wishlist</span> </a>
+                        </li>
                         <li class="level1"><a href="{% url 'dashboard_page' %}"> <span>Dashboard</span> </a></li>
                         <li class="level1"><a href="multiple_addresses.html"> <span>Multiple Addresses</span> </a>
                         </li>
