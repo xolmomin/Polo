@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 from app.forms import RegisterForm
-from app.models import Product, Category
+from app.models import Product, Category, Blog
 
 from app.forms import RegisterForm, LoginForm
 from app.models import Product
@@ -130,6 +130,13 @@ class BlogPage(TemplateView):
 
 class BlogDetailsPage(TemplateView):
     template_name = 'app/company/blog_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        all_blogs = Blog.objects.all()
+        context['all_blogs'] = all_blogs
+
+        return context
 
 
 class ProductList(TemplateView):

@@ -148,7 +148,7 @@
                                                 </span> facebook
                                             </button>
                                         </form>
-                                        <form action="{% url 'social:begin' 'github' %}" method="post">
+                                        <form action="/accounts/facebook/login/" method="post">
                                             {% csrf_token %}
                                             <button class="btn btn-outline-google-plus btn-sm d-block w-100" href="#">
                                 <span class="fab fa-google-plus-g me-2" data-fa-transform="grow-8">

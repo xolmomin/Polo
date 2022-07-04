@@ -60,6 +60,18 @@ class Product(BaseModel):
         return self.title
 
 
+class Blog(BaseModel):
+    title = CharField(max_length=255)
+    category = TreeForeignKey('app.BlogCategory', SET_NULL, blank=True, null=True)
+    image = ImageField(upload_to='blogs/')
+    description = CharField(max_length=1000, blank=True, null=True)
+    quick_overview = CharField(max_length=250, blank=True, null=True)
+    comments = CharField(max_length=250, blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+
 class Category(MPTTModel):
     parent = TreeForeignKey('self', CASCADE, null=True, blank=True, related_name='children')
     name = CharField(max_length=50, unique=True)
@@ -68,3 +80,9 @@ class Category(MPTTModel):
         return self.name
 
 
+class BlogCategory(MPTTModel):
+    parent = TreeForeignKey('self', CASCADE, null=True, blank=True, related_name='children')
+    name = CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name

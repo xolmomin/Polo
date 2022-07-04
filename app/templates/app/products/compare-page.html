@@ -39,16 +39,15 @@
                         <h2>Compare Products</h2>
                     </div>
                     <div class="table-responsive">
+                        {% for i in all_b %}
                         <table class="table table-striped compare-table">
-
                             <tbody>
                             <tr class="product-shop-row first odd">
                                 <th>&nbsp;</th>
                                 <td><a href="#" class="btn-cancel icon-remove" title="Remove This Item"></a> <a
                                         class="product-image" href="#" title="Azrouel Dress"><img
                                         src="{% static 'app/products-images/product1.jpg' %}" alt="Azrouel Dress" width="200"></a>
-                                    <h2 class="product-name"><a href="{% url 'product_detail' %}" title="Azrouel Dress">Sample
-                                        Product</a></h2>
+                                    <h2 class="product-name"><a href="#" title="Azrouel Dress">33</a></h2>
                                     <div class="price-box">
                                         <p class="special-price"><span class="price"> $45.00 </span></p>
                                         <p class="old-price"><span class="price-sep">-</span> <span class="price"> $50.00 </span>
@@ -58,12 +57,12 @@
                                         <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span>
                                         </button>
                                     </p>
-                                    <a href="wishlist.html" class="btn-cart">Add to Wishlist</a></td>
+                                    <a href="{% url 'my_wishlist_page' %}" class="btn-cart">Add to Wishlist</a></td>
                                 <td><a href="#" class="btn-cancel icon-remove" title="Remove This Item"></a><a
                                         class="product-image" href="#"
                                         title="Blue Lagoon polka-dot chiffon and lace thong"><img
                                         src="{% static 'app/products-images/product1.jpg' %}" alt="Azrouel Dress" width="200"></a>
-                                    <h2 class="product-name"><a href="{% url 'product_detail' %}"
+                                    <h2 class="product-name"><a href="#"
                                                                 title="Blue Lagoon polka-dot chiffon and lace thong">Sample
                                         Product</a></h2>
                                     <div class="price-box"><span class="regular-price"> <span
@@ -72,67 +71,11 @@
                                         <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span>
                                         </button>
                                     </p>
-                                    <a href="wishlist.html" class="btn-cart">Add to Wishlist</a></td>
-                            </tr>
-                            </tbody>
-                            <tbody>
-                            <tr class="even">
-                                <th>Description</th>
-                                <td>
-                                    <div> Silver, metallic-blue and metallic-lavender silk-blend jacquard, graphic
-                                        pattern, pleated ruffle along collar, long sleeves with button-fastening cuffs,
-                                        buckle-fastening silver skinny belt, large pleated rosettes at hips, pleated
-                                        ruffle around back, vent at back hem, fully lined. Concealed button fastenings
-                                        through front. 58% silk, 37% metal, 5% polyester; lining: 92% polyester, 8%
-                                        elastane. Dry clean. Zip and hook fastening at back. 100% silk. Specialist
-                                        clean.
-                                    </div>
-                                </td>
-                                <td>
-                                    <div> Silver, metallic-blue and metallic-lavender silk-blend jacquard, graphic
-                                        pattern, pleated ruffle along collar, long sleeves with button-fastening cuffs,
-                                        buckle-fastening silver skinny belt, large pleated rosettes at hips, pleated
-                                        ruffle around back, vent at back hem, fully lined. Concealed button fastenings
-                                        through front. 58% silk, 37% metal, 5% polyester; lining: 92% polyester, 8%
-                                        elastane. Dry clean. Zip and hook fastening at back. 100% silk. Specialist
-                                        clean.
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd">
-                                <th>Color</th>
-                                <td>
-                                    <div> Black</div>
-                                </td>
-                                <td>
-                                    <div> Black</div>
-                                </td>
-                            </tr>
-                            <tr class="even">
-                                <th>Short Description</th>
-                                <td>
-                                    <div> Silver, metallic-blue and metallic-lavender silk-blend jacquard, graphic
-                                        pattern, pleated ruffle along collar, long sleeves with button-fastening cuffs,
-                                        buckle-fastening silver skinny belt, large pleated rosettes at hips, pleated
-                                        ruffle around back, vent at back hem, fully lined. Concealed button fastenings
-                                        through front. 58% silk, 37% metal, 5% polyester; lining: 92% polyester, 8%
-                                        elastane. Dry clean. Zip and hook fastening at back. 100% silk. Specialist
-                                        clean.
-                                    </div>
-                                </td>
-                                <td>
-                                    <div> Silver, metallic-blue and metallic-lavender silk-blend jacquard, graphic
-                                        pattern, pleated ruffle along collar, long sleeves with button-fastening cuffs,
-                                        buckle-fastening silver skinny belt, large pleated rosettes at hips, pleated
-                                        ruffle around back, vent at back hem, fully lined. Concealed button fastenings
-                                        through front. 58% silk, 37% metal, 5% polyester; lining: 92% polyester, 8%
-                                        elastane. Dry clean. Zip and hook fastening at back. 100% silk. Specialist
-                                        clean.
-                                    </div>
-                                </td>
+                                    <a href="{% url 'my_wishlist_page' %}" class="btn-cart">Add to Wishlist</a></td>
                             </tr>
                             </tbody>
                         </table>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
