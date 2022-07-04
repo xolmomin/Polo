@@ -43,7 +43,7 @@ class IndexPage(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['Products'] = Product.objects.all()[:5]
+        context['Products'] = Product.objects.all()
         context['Categorys'] = Category.objects.all()
 
         return context

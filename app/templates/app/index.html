@@ -49,12 +49,12 @@
                                                                                                     <ul>
                                                                                                         {% for y in Categorys %}
                                                                                                             {% if x.id == y.parent_id %}
-                                                                                                            <li>
-                                                                                                                <a
-                                                                                                                        href="{% url 'product_list' %}">
-                                                                                                                    <span>{{ y.name }}</span>
-                                                                                                                </a>
-                                                                                                            </li>
+                                                                                                                <li>
+                                                                                                                    <a
+                                                                                                                            href="{% url 'product_list' %}">
+                                                                                                                        <span>{{ y.name }}</span>
+                                                                                                                    </a>
+                                                                                                                </li>
                                                                                                             {% endif %}
                                                                                                         {% endfor %}
 
@@ -245,10 +245,11 @@
                                             <div class="sale-label sale-top-right">{{ product.category }}</div>
                                             <div class="product-image-area"><a class="product-image"
                                                                                title="Sample Product"
-                                                                               href="{% url 'product_detail_with_id' product.id %}"> <img
-                                                    src="{{ product.image.url }}"
-                                                    class="img-responsive"
-                                                    alt="product-image"/> </a>
+                                                                               href="{% url 'product_detail_with_id' product.id %}">
+                                                <img
+                                                        src="{{ product.image.url }}"
+                                                        class="img-responsive"
+                                                        alt="product-image"/> </a>
                                                 <div class="hover_fly"><a class="exclusive ajax_add_to_cart_button"
                                                                           href="#"
                                                                           title="Add to cart">
@@ -265,7 +266,8 @@
                                             </div>
                                             <div class="info">
                                                 <div class="info-inner">
-                                                    <div class="item-title"><a title="Sample Product" href="{% url 'product_detail_with_id' product.id %}"> {{ product.title }}</a>
+                                                    <div class="item-title"><a title="Sample Product"
+                                                                               href="{% url 'product_detail_with_id' product.id %}"> {{ product.title }}</a>
                                                     </div>
                                                     <!--item-title-->
                                                     <div class="item-content">
@@ -400,588 +402,378 @@
     <!-- middle slider -->
     <section class="middle-slider container wow bounceInUp animated">
         <div class="row">
-            <div class="col-md-6">
-                <div class="bag-product-slider small-pr-slider cat-section">
-                    <div class="slider-items-products">
-                        <div class="new_title center">
-                            <h2>Bags</h2>
-                        </div>
-                        <div id="bag-seller-slider" class="product-flexslider hidden-buttons">
-                            <div class="slider-items slider-width-col3">
+            {% for i in Categorys %}
+                {% if i.level == 1 %}
+                    <div class="col-md-6">
+                        <div class="bag-product-slider small-pr-slider cat-section">
+                            <div class="slider-items-products">
+                                <div class="new_title center">
+                                    <h2>{{ i.name }}</h2>
+                                </div>
+                                {% for x in Products %}
+                                    {% if i.id == x.category_id %}
+                                        <div id="bag-seller-slider" class="product-flexslider hidden-buttons">
+                                            <div class="slider-items slider-width-col3">
 
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="col-item">
-                                        <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> <img
-                                                src="{% static 'app/images/products-product1.jpg' %}"
-                                                class="img-responsive" alt="a"/> </a>
-                                            <div class="actions-links"><span class="add-to-links"> <a
-                                                    title="magik-btn-quickview" class="magik-btn-quickview"
-                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                                    title="Add to Wishlist" class="link-wishlist"
-                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                                    title="Add to Compare" class="link-compare"
-                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="info-inner">
-                                                <div class="item-title"><a title=" Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> Sample
-                                                    Product </a>
-                                                </div>
-                                                <!--item-title-->
-                                                <div class="item-content">
-                                                    <div class="ratings">
-                                                        <div class="rating-box">
-                                                            <div class="rating"></div>
+                                                <!-- Item -->
+                                                <div class="item">
+                                                    <div class="col-item">
+                                                        <div class="product-image-area"><a class="product-image"
+                                                                                           title="{{ x.name }}"
+                                                                                           href="{% url 'product_detail_with_id' x.id %}">
+                                                            <img
+                                                                    src="{{ x.image.url }}"
+                                                                    class="img-responsive" alt="a"/> </a>
+                                                            <div class="actions-links"><span class="add-to-links"> <a
+                                                                    title="magik-btn-quickview"
+                                                                    class="magik-btn-quickview"
+                                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
+                                                                    title="Add to Wishlist" class="link-wishlist"
+                                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
+                                                                    title="Add to Compare" class="link-compare"
+                                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info">
+                                                            <div class="info-inner">
+                                                                <div class="item-title"><a title=" Sample Product"
+                                                                                           href="{% url 'product_detail_with_id' x.id %}">
+                                                                    {{ x.title }}</a>
+                                                                </div>
+                                                                <!--item-title-->
+                                                                <div class="item-content">
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="price-box">
+                                                                        <p class="special-price"><span
+                                                                                class="price"> ${{ x.price }} </span>
+                                                                        </p>
+
+                                                                    </div>
+                                                                </div>
+                                                                <!--item-content-->
+                                                            </div>
+                                                            <!--info-inner-->
+                                                            <div class="actions">
+                                                                <button type="button" title="Add to Cart"
+                                                                        class="button btn-cart">
+                                                                    <span>Add to Cart</span>
+                                                                </button>
+                                                            </div>
+                                                            <!--actions-->
+
+                                                            <div class="clearfix"></div>
                                                         </div>
                                                     </div>
-                                                    <div class="price-box">
-                                                        <p class="special-price"><span class="price"> $45.00 </span></p>
-                                                        <p class="old-price"><span class="price-sep">-</span> <span
-                                                                class="price"> $50.00 </span></p>
-                                                    </div>
                                                 </div>
-                                                <!--item-content-->
-                                            </div>
-                                            <!--info-inner-->
-                                            <div class="actions">
-                                                <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span>
-                                                </button>
-                                            </div>
-                                            <!--actions-->
+                                                <!-- End Item -->
 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Item -->
+                                                <!-- Item -->
+                                                <div class="item">
+                                                    <div class="col-item">
+                                                        <div class="product-image-area"><a class="product-image"
+                                                                                           title="Sample Product"
+                                                                                           href="{% url 'product_detail_with_id' 1 %}">
+                                                            <img
+                                                                    src="{% static 'app/images/products-product1.jpg' %}"
+                                                                    class="img-responsive" alt="a"/> </a>
+                                                            <div class="actions-links"><span class="add-to-links"> <a
+                                                                    title="magik-btn-quickview"
+                                                                    class="magik-btn-quickview"
+                                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
+                                                                    title="Add to Wishlist" class="link-wishlist"
+                                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
+                                                                    title="Add to Compare" class="link-compare"
+                                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info">
+                                                            <div class="info-inner">
+                                                                <div class="item-title"><a title=" Sample Product"
+                                                                                           href="{% url 'product_detail_with_id' 1 %}">
+                                                                    Sample
+                                                                    Product </a>
+                                                                </div>
+                                                                <!--item-title-->
+                                                                <div class="item-content">
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="price-box"><span
+                                                                            class="regular-price"> <span
+                                                                            class="price">$422.00</span> </span>
+                                                                    </div>
+                                                                </div>
+                                                                <!--item-content-->
+                                                            </div>
+                                                            <!--info-inner-->
+                                                            <div class="actions">
+                                                                <button type="button" title="Add to Cart"
+                                                                        class="button btn-cart">
+                                                                    <span>Add to Cart</span>
+                                                                </button>
+                                                            </div>
+                                                            <!--actions-->
 
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="col-item">
-                                        <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> <img
-                                                src="{% static 'app/images/products-product1.jpg' %}"
-                                                class="img-responsive" alt="a"/> </a>
-                                            <div class="actions-links"><span class="add-to-links"> <a
-                                                    title="magik-btn-quickview" class="magik-btn-quickview"
-                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                                    title="Add to Wishlist" class="link-wishlist"
-                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                                    title="Add to Compare" class="link-compare"
-                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="info-inner">
-                                                <div class="item-title"><a title=" Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> Sample
-                                                    Product </a>
-                                                </div>
-                                                <!--item-title-->
-                                                <div class="item-content">
-                                                    <div class="ratings">
-                                                        <div class="rating-box">
-                                                            <div class="rating"></div>
+                                                            <div class="clearfix"></div>
                                                         </div>
                                                     </div>
-                                                    <div class="price-box"><span class="regular-price"> <span
-                                                            class="price">$422.00</span> </span>
-                                                    </div>
                                                 </div>
-                                                <!--item-content-->
-                                            </div>
-                                            <!--info-inner-->
-                                            <div class="actions">
-                                                <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span>
-                                                </button>
-                                            </div>
-                                            <!--actions-->
+                                                <!-- End Item -->
 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Item -->
+                                                <!-- Item -->
+                                                <div class="item">
+                                                    <div class="col-item">
+                                                        <div class="product-image-area"><a class="product-image"
+                                                                                           title="Sample Product"
+                                                                                           href="{% url 'product_detail_with_id' 1 %}">
+                                                            <img
+                                                                    alt="a"
+                                                                    class="img-responsive"
+                                                                    src="{% static 'app/images/products-product1.jpg' %}">
+                                                        </a>
+                                                            <div class="actions-links"><span class="add-to-links"> <a
+                                                                    title="magik-btn-quickview"
+                                                                    class="magik-btn-quickview"
+                                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
+                                                                    title="Add to Wishlist" class="link-wishlist"
+                                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
+                                                                    title="Add to Compare" class="link-compare"
+                                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info">
+                                                            <div class="info-inner">
+                                                                <div class="item-title"><a title=" Sample Product"
+                                                                                           href="{% url 'product_detail_with_id' 1 %}">
+                                                                    Sample
+                                                                    Product </a>
+                                                                </div>
+                                                                <!--item-title-->
+                                                                <div class="item-content">
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="price-box"><span
+                                                                            class="regular-price"> <span
+                                                                            class="price">$50.00</span> </span>
+                                                                    </div>
+                                                                </div>
+                                                                <!--item-content-->
+                                                            </div>
+                                                            <!--info-inner-->
+                                                            <div class="actions">
+                                                                <button class="button btn-cart" title="Add to Cart"
+                                                                        type="button">
+                                                                    <span>Add to Cart</span>
+                                                                </button>
+                                                            </div>
+                                                            <!--actions-->
 
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="col-item">
-                                        <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> <img
-                                                alt="a"
-                                                class="img-responsive"
-                                                src="{% static 'app/images/products-product1.jpg' %}">
-                                        </a>
-                                            <div class="actions-links"><span class="add-to-links"> <a
-                                                    title="magik-btn-quickview" class="magik-btn-quickview"
-                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                                    title="Add to Wishlist" class="link-wishlist"
-                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                                    title="Add to Compare" class="link-compare"
-                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="info-inner">
-                                                <div class="item-title"><a title=" Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> Sample
-                                                    Product </a>
-                                                </div>
-                                                <!--item-title-->
-                                                <div class="item-content">
-                                                    <div class="ratings">
-                                                        <div class="rating-box">
-                                                            <div class="rating"></div>
+                                                            <div class="clearfix"></div>
                                                         </div>
                                                     </div>
-                                                    <div class="price-box"><span class="regular-price"> <span
-                                                            class="price">$50.00</span> </span>
-                                                    </div>
                                                 </div>
-                                                <!--item-content-->
-                                            </div>
-                                            <!--info-inner-->
-                                            <div class="actions">
-                                                <button class="button btn-cart" title="Add to Cart" type="button"><span>Add to Cart</span>
-                                                </button>
-                                            </div>
-                                            <!--actions-->
+                                                <!-- End Item -->
 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Item -->
+                                                <!-- Item -->
+                                                <div class="item">
+                                                    <div class="col-item">
+                                                        <div class="product-image-area"><a class="product-image"
+                                                                                           title="Sample Product"
+                                                                                           href="{% url 'product_detail_with_id' 1 %}">
+                                                            <img
+                                                                    alt="a"
+                                                                    class="img-responsive"
+                                                                    src="{% static 'app/images/products-product1.jpg' %}">
+                                                        </a>
+                                                            <div class="actions-links"><span class="add-to-links"> <a
+                                                                    title="magik-btn-quickview"
+                                                                    class="magik-btn-quickview"
+                                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
+                                                                    title="Add to Wishlist" class="link-wishlist"
+                                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
+                                                                    title="Add to Compare" class="link-compare"
+                                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info">
+                                                            <div class="info-inner">
+                                                                <div class="item-title"><a title=" Sample Product"
+                                                                                           href="{% url 'product_detail_with_id' 1 %}">
+                                                                    Sample
+                                                                    Product </a>
+                                                                </div>
+                                                                <!--item-title-->
+                                                                <div class="item-content">
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="price-box">
+                                                                        <p class="special-price"><span
+                                                                                class="price"> $45.00 </span>
+                                                                        </p>
+                                                                        <p class="old-price"><span
+                                                                                class="price-sep">-</span>
+                                                                            <span
+                                                                                    class="price"> $50.00 </span></p>
+                                                                    </div>
+                                                                </div>
+                                                                <!--item-content-->
+                                                            </div>
+                                                            <!--info-inner-->
+                                                            <div class="actions">
+                                                                <button class="button btn-cart" title="Add to Cart"
+                                                                        type="button">
+                                                                    <span>Add to Cart</span>
+                                                                </button>
+                                                            </div>
+                                                            <!--actions-->
 
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="col-item">
-                                        <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> <img
-                                                alt="a"
-                                                class="img-responsive"
-                                                src="{% static 'app/images/products-product1.jpg' %}">
-                                        </a>
-                                            <div class="actions-links"><span class="add-to-links"> <a
-                                                    title="magik-btn-quickview" class="magik-btn-quickview"
-                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                                    title="Add to Wishlist" class="link-wishlist"
-                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                                    title="Add to Compare" class="link-compare"
-                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="info-inner">
-                                                <div class="item-title"><a title=" Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> Sample
-                                                    Product </a>
-                                                </div>
-                                                <!--item-title-->
-                                                <div class="item-content">
-                                                    <div class="ratings">
-                                                        <div class="rating-box">
-                                                            <div class="rating"></div>
+                                                            <div class="clearfix"></div>
                                                         </div>
                                                     </div>
-                                                    <div class="price-box">
-                                                        <p class="special-price"><span class="price"> $45.00 </span></p>
-                                                        <p class="old-price"><span class="price-sep">-</span> <span
-                                                                class="price"> $50.00 </span></p>
-                                                    </div>
                                                 </div>
-                                                <!--item-content-->
-                                            </div>
-                                            <!--info-inner-->
-                                            <div class="actions">
-                                                <button class="button btn-cart" title="Add to Cart" type="button"><span>Add to Cart</span>
-                                                </button>
-                                            </div>
-                                            <!--actions-->
+                                                <!-- End Item -->
 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Item -->
+                                                <!-- Item -->
+                                                <div class="item">
+                                                    <div class="col-item">
+                                                        <div class="product-image-area"><a class="product-image"
+                                                                                           title="Sample Product"
+                                                                                           href="{% url 'product_detail_with_id' 1 %}">
+                                                            <img
+                                                                    alt="a"
+                                                                    class="img-responsive"
+                                                                    src="{% static 'app/images/products-product1.jpg' %}">
+                                                        </a>
+                                                            <div class="actions-links"><span class="add-to-links"> <a
+                                                                    title="magik-btn-quickview"
+                                                                    class="magik-btn-quickview"
+                                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
+                                                                    title="Add to Wishlist" class="link-wishlist"
+                                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
+                                                                    title="Add to Compare" class="link-compare"
+                                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info">
+                                                            <div class="info-inner">
+                                                                <div class="item-title"><a title=" Sample Product"
+                                                                                           href="{% url 'product_detail_with_id' 1 %}">
+                                                                    Sample
+                                                                    Product </a>
+                                                                </div>
+                                                                <!--item-title-->
+                                                                <div class="item-content">
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="price-box">
+                                                                        <p class="special-price"><span
+                                                                                class="price"> $45.00 </span>
+                                                                        </p>
+                                                                        <p class="old-price"><span
+                                                                                class="price-sep">-</span>
+                                                                            <span
+                                                                                    class="price"> $50.00 </span></p>
+                                                                    </div>
+                                                                </div>
+                                                                <!--item-content-->
+                                                            </div>
+                                                            <!--info-inner-->
+                                                            <div class="actions">
+                                                                <button class="button btn-cart" title="Add to Cart"
+                                                                        type="button">
+                                                                    <span>Add to Cart</span>
+                                                                </button>
+                                                            </div>
+                                                            <!--actions-->
 
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="col-item">
-                                        <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> <img
-                                                alt="a"
-                                                class="img-responsive"
-                                                src="{% static 'app/images/products-product1.jpg' %}">
-                                        </a>
-                                            <div class="actions-links"><span class="add-to-links"> <a
-                                                    title="magik-btn-quickview" class="magik-btn-quickview"
-                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                                    title="Add to Wishlist" class="link-wishlist"
-                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                                    title="Add to Compare" class="link-compare"
-                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="info-inner">
-                                                <div class="item-title"><a title=" Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> Sample
-                                                    Product </a>
-                                                </div>
-                                                <!--item-title-->
-                                                <div class="item-content">
-                                                    <div class="ratings">
-                                                        <div class="rating-box">
-                                                            <div class="rating"></div>
+                                                            <div class="clearfix"></div>
                                                         </div>
                                                     </div>
-                                                    <div class="price-box">
-                                                        <p class="special-price"><span class="price"> $45.00 </span></p>
-                                                        <p class="old-price"><span class="price-sep">-</span> <span
-                                                                class="price"> $50.00 </span></p>
-                                                    </div>
                                                 </div>
-                                                <!--item-content-->
-                                            </div>
-                                            <!--info-inner-->
-                                            <div class="actions">
-                                                <button class="button btn-cart" title="Add to Cart" type="button"><span>Add to Cart</span>
-                                                </button>
-                                            </div>
-                                            <!--actions-->
+                                                <!-- End Item -->
 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Item -->
+                                                <!-- Item -->
+                                                <div class="item">
+                                                    <div class="col-item">
+                                                        <div class="product-image-area"><a class="product-image"
+                                                                                           title="Sample Product"
+                                                                                           href="{% url 'product_detail_with_id' 1 %}">
+                                                            <img
+                                                                    alt="a"
+                                                                    class="img-responsive"
+                                                                    src="{% static 'app/images/products-product1.jpg' %}">
+                                                        </a>
+                                                            <div class="actions-links"><span class="add-to-links"> <a
+                                                                    title="magik-btn-quickview"
+                                                                    class="magik-btn-quickview"
+                                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
+                                                                    title="Add to Wishlist" class="link-wishlist"
+                                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
+                                                                    title="Add to Compare" class="link-compare"
+                                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info">
+                                                            <div class="info-inner">
+                                                                <div class="item-title"><a title=" Sample Product"
+                                                                                           href="{% url 'product_detail_with_id' 1 %}">
+                                                                    Sample
+                                                                    Product </a>
+                                                                </div>
+                                                                <!--item-title-->
+                                                                <div class="item-content">
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="price-box"><span
+                                                                            class="regular-price"> <span
+                                                                            class="price">$422.00</span> </span>
+                                                                    </div>
+                                                                </div>
+                                                                <!--item-content-->
+                                                            </div>
+                                                            <!--info-inner-->
+                                                            <div class="actions">
+                                                                <button class="button btn-cart" title="Add to Cart"
+                                                                        type="button">
+                                                                    <span>Add to Cart</span>
+                                                                </button>
+                                                            </div>
+                                                            <!--actions-->
 
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="col-item">
-                                        <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> <img
-                                                alt="a"
-                                                class="img-responsive"
-                                                src="{% static 'app/images/products-product1.jpg' %}">
-                                        </a>
-                                            <div class="actions-links"><span class="add-to-links"> <a
-                                                    title="magik-btn-quickview" class="magik-btn-quickview"
-                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                                    title="Add to Wishlist" class="link-wishlist"
-                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                                    title="Add to Compare" class="link-compare"
-                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="info-inner">
-                                                <div class="item-title"><a title=" Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> Sample
-                                                    Product </a>
-                                                </div>
-                                                <!--item-title-->
-                                                <div class="item-content">
-                                                    <div class="ratings">
-                                                        <div class="rating-box">
-                                                            <div class="rating"></div>
+                                                            <div class="clearfix"></div>
                                                         </div>
                                                     </div>
-                                                    <div class="price-box"><span class="regular-price"> <span
-                                                            class="price">$422.00</span> </span>
-                                                    </div>
                                                 </div>
-                                                <!--item-content-->
-                                            </div>
-                                            <!--info-inner-->
-                                            <div class="actions">
-                                                <button class="button btn-cart" title="Add to Cart" type="button"><span>Add to Cart</span>
-                                                </button>
-                                            </div>
-                                            <!--actions-->
+                                                <!-- End Item -->
 
-                                            <div class="clearfix"></div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <!-- End Item -->
-
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="shoes-product-slider small-pr-slider cat-section">
-                    <div class="slider-items-products">
-                        <div class="new_title center">
-                            <h2>Shoes</h2>
-                        </div>
-                        <div id="shoes-slider" class="product-flexslider hidden-buttons">
-                            <div class="slider-items slider-width-col3">
+                {% endif %}
+            {% endfor %}
 
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="col-item">
-                                        <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> <img
-                                                src="{% static 'app/images/products-product1.jpg' %}"
-                                                class="img-responsive" alt="a"/> </a>
-                                            <div class="actions-links"><span class="add-to-links"> <a
-                                                    title="magik-btn-quickview" class="magik-btn-quickview"
-                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                                    title="Add to Wishlist" class="link-wishlist"
-                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                                    title="Add to Compare" class="link-compare"
-                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="info-inner">
-                                                <div class="item-title"><a title=" Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> Sample
-                                                    Product </a>
-                                                </div>
-                                                <!--item-title-->
-                                                <div class="item-content">
-                                                    <div class="ratings">
-                                                        <div class="rating-box">
-                                                            <div class="rating"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-box">
-                                                        <p class="special-price"><span class="price"> $45.00 </span></p>
-                                                        <p class="old-price"><span class="price-sep">-</span> <span
-                                                                class="price"> $50.00 </span></p>
-                                                    </div>
-                                                </div>
-                                                <!--item-content-->
-                                            </div>
-                                            <!--info-inner-->
-                                            <div class="actions">
-                                                <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span>
-                                                </button>
-                                            </div>
-                                            <!--actions-->
-
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Item -->
-
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="col-item">
-                                        <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> <img
-                                                src="{% static 'app/images/products-product1.jpg' %}"
-                                                class="img-responsive" alt="a"/> </a>
-                                            <div class="actions-links"><span class="add-to-links"> <a
-                                                    title="magik-btn-quickview" class="magik-btn-quickview"
-                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                                    title="Add to Wishlist" class="link-wishlist"
-                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                                    title="Add to Compare" class="link-compare"
-                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="info-inner">
-                                                <div class="item-title"><a title=" Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> Sample
-                                                    Product </a>
-                                                </div>
-                                                <!--item-title-->
-                                                <div class="item-content">
-                                                    <div class="ratings">
-                                                        <div class="rating-box">
-                                                            <div class="rating"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-box"><span class="regular-price"> <span
-                                                            class="price">$422.00</span> </span>
-                                                    </div>
-                                                </div>
-                                                <!--item-content-->
-                                            </div>
-                                            <!--info-inner-->
-                                            <div class="actions">
-                                                <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span>
-                                                </button>
-                                            </div>
-                                            <!--actions-->
-
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Item -->
-
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="col-item">
-                                        <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> <img
-                                                alt="a"
-                                                class="img-responsive"
-                                                src="{% static 'app/images/products-product1.jpg' %}">
-                                        </a>
-                                            <div class="actions-links"><span class="add-to-links"> <a
-                                                    title="magik-btn-quickview" class="magik-btn-quickview"
-                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                                    title="Add to Wishlist" class="link-wishlist"
-                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                                    title="Add to Compare" class="link-compare"
-                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="info-inner">
-                                                <div class="item-title"><a title=" Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> Sample
-                                                    Product </a>
-                                                </div>
-                                                <!--item-title-->
-                                                <div class="item-content">
-                                                    <div class="ratings">
-                                                        <div class="rating-box">
-                                                            <div class="rating"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-box"><span class="regular-price"> <span
-                                                            class="price">$50.00</span> </span>
-                                                    </div>
-                                                </div>
-                                                <!--item-content-->
-                                            </div>
-                                            <!--info-inner-->
-                                            <div class="actions">
-                                                <button class="button btn-cart" title="Add to Cart" type="button"><span>Add to Cart</span>
-                                                </button>
-                                            </div>
-                                            <!--actions-->
-
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Item -->
-
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="col-item">
-                                        <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> <img
-                                                alt="a"
-                                                class="img-responsive"
-                                                src="{% static 'app/images/products-product1.jpg' %}">
-                                        </a>
-                                            <div class="actions-links"><span class="add-to-links"> <a
-                                                    title="magik-btn-quickview" class="magik-btn-quickview"
-                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                                    title="Add to Wishlist" class="link-wishlist"
-                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                                    title="Add to Compare" class="link-compare"
-                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="info-inner">
-                                                <div class="item-title"><a title=" Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> Sample
-                                                    Product </a>
-                                                </div>
-                                                <!--item-title-->
-                                                <div class="item-content">
-                                                    <div class="ratings">
-                                                        <div class="rating-box">
-                                                            <div class="rating"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-box">
-                                                        <p class="special-price"><span class="price"> $45.00 </span></p>
-                                                        <p class="old-price"><span class="price-sep">-</span> <span
-                                                                class="price"> $50.00 </span></p>
-                                                    </div>
-                                                </div>
-                                                <!--item-content-->
-                                            </div>
-                                            <!--info-inner-->
-                                            <div class="actions">
-                                                <button class="button btn-cart" title="Add to Cart" type="button"><span>Add to Cart</span>
-                                                </button>
-                                            </div>
-                                            <!--actions-->
-
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Item -->
-
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="col-item">
-                                        <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> <img
-                                                alt="a"
-                                                class="img-responsive"
-                                                src="{% static 'app/images/products-product1.jpg' %}">
-                                        </a>
-                                            <div class="actions-links"><span class="add-to-links"> <a
-                                                    title="magik-btn-quickview" class="magik-btn-quickview"
-                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                                    title="Add to Wishlist" class="link-wishlist"
-                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                                    title="Add to Compare" class="link-compare"
-                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="info-inner">
-                                                <div class="item-title"><a title=" Sample Product"
-                                                                           href="{% url 'product_detail_with_id' 1 %}"> Sample
-                                                    Product </a>
-                                                </div>
-                                                <!--item-title-->
-                                                <div class="item-content">
-                                                    <div class="ratings">
-                                                        <div class="rating-box">
-                                                            <div class="rating"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-box">
-                                                        <p class="special-price"><span class="price"> $45.00 </span></p>
-                                                        <p class="old-price"><span class="price-sep">-</span> <span
-                                                                class="price"> $50.00 </span></p>
-                                                    </div>
-                                                </div>
-                                                <!--item-content-->
-                                            </div>
-                                            <!--info-inner-->
-                                            <div class="actions">
-                                                <button class="button btn-cart" title="Add to Cart" type="button"><span>Add to Cart</span>
-                                                </button>
-                                            </div>
-                                            <!--actions-->
-
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Item -->
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     <!-- End middle slider -->
