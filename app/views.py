@@ -1,11 +1,13 @@
+from django.contrib import messages
 from django.contrib.auth.views import LogoutView, LoginView
 from django.shortcuts import render
-from django.contrib import messages
-# Create your views here.
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 from app.forms import RegisterForm
 from app.models import Product, Category
+
+from app.forms import RegisterForm, LoginForm
+from app.models import Product
 
 
 class RegisterPage(FormView):
@@ -28,7 +30,12 @@ class LogoutPage(LogoutView):
 
 
 class LoginPage(LoginView):
+    form_class = LoginForm
     template_name = 'app/main/login-page.html'
+    success_url = reverse_lazy('index')
+
+    def form_valid(self, form):
+        return super().form_valid(form)
 
 
 class IndexPage(TemplateView):
@@ -36,7 +43,7 @@ class IndexPage(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['Product'] = Product.objects.all()[:5]
+        context['Products'] = Product.objects.all()
         context['Categorys'] = Category.objects.all()
 
         return context
@@ -51,15 +58,34 @@ class AllProductPage(TemplateView):
 
 
 class ProductDetailPage(TemplateView):
+
+
     template_name = 'app/products/product-detail-page.html'
 
 
-def Product_Detail_Page(request, product_id):
-    products = Product.objects.filter(id=product_id).first()
-    context = {
-        'product_details': products
-    }
-    return render(request, 'app/products/product-detail-page.html', context)
+class Product_Detail_Page(TemplateView):
+
+    template_name = 'app/products/product-detail-page.html'
+
+
+
+
+    def get_context_data(self, **kwargs):
+        context= super().get_context_data(**kwargs)
+        product = Product.objects.filter(id=kwargs.get('product_id')).first()
+        context['price'] = int(product.price)
+        context['discount'] = int(product.price) - (int(product.price) * (product.discount / 100))
+        context['product'] = product
+
+        # auth
+        all_category = Category.objects.filter(level=2)
+        all_products = Product.objects.all()
+        context['all_category'] = all_category
+        context['all_products'] = all_products
+
+        return context
+
+
 
 
 class QuickViewPage(TemplateView):
