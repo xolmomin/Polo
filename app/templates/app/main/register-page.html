@@ -148,22 +148,6 @@
                                                 </span> facebook
                                             </button>
                                         </form>
-                                        {##}
-                                        {#                                        <form action="{% url "social:begin" "twitter" %}" method="post">#}
-                                        {#                                            {% csrf_token %}#}
-                                        {#                                            <button class="btn btn-outline-google-plus btn-sm d-block w-100" href="#">#}
-                                        {#                                                <span class="fa-brands fa-facebook-f data-fa-transform=" data-fa-transform="grow-8">#}
-                                        {#                                                </span> twitter#}
-                                        {#                                            </button>#}
-                                        {#                                        </form>#}
-                                        {##}
-                                        {#                                        <form action="{% url 'social:begin' 'github' %}" method="post">#}
-                                        {#                                            {% csrf_token %}#}
-                                        {#                                            <button class="btn btn-outline-google-plus btn-sm d-block w-100" href="#">#}
-                                        {#                                                <span class="fa-brands fa-facebook-f data-fa-transform=" data-fa-transform="grow-8">#}
-                                        {#                                                </span> github#}
-                                        {#                                            </button>#}
-                                        {#                                        </form>#}
                                         <form action="{% url 'social:begin' 'github' %}" method="post">
                                             {% csrf_token %}
                                             <button class="btn btn-outline-google-plus btn-sm d-block w-100" href="#">
