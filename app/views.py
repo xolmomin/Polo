@@ -58,20 +58,14 @@ class AllProductPage(TemplateView):
 
 
 class ProductDetailPage(TemplateView):
-
-
     template_name = 'app/products/product-detail-page.html'
 
 
 class Product_Detail_Page(TemplateView):
-
     template_name = 'app/products/product-detail-page.html'
 
-
-
-
     def get_context_data(self, **kwargs):
-        context= super().get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         product = Product.objects.filter(id=kwargs.get('product_id')).first()
         context['price'] = int(product.price)
         context['discount'] = int(product.price) - (int(product.price) * (product.discount / 100))
@@ -84,8 +78,6 @@ class Product_Detail_Page(TemplateView):
         context['all_products'] = all_products
 
         return context
-
-
 
 
 class QuickViewPage(TemplateView):

@@ -60,65 +60,11 @@ class Product(BaseModel):
         return self.title
 
 
-
-
-
 class Category(MPTTModel):
-    parent = TreeForeignKey('self' ,CASCADE, null=True, blank=True, related_name='children')
+    parent = TreeForeignKey('self', CASCADE, null=True, blank=True, related_name='children')
     name = CharField(max_length=50, unique=True)
-
 
     def __str__(self):
         return self.name
 
 
-
-class Discount(Model):
-    parent = ForeignKey('app.Discount', SET_NULL, blank=True, null=True)
-    percent = CharField(max_length=255)
-    slug = SlugField(unique=True)
-
-    def __str__(self):
-        return self.percent
-
-    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        if not self.slug:
-            self.slug = slugify(self.percent)
-            while Discount.objects.filter(slug=self.slug).exists():
-                self.slug = f'{self.slug}-1'
-
-        super().save(force_insert, force_update, using, update_fields)
-
-
-class Gender(Model):
-    parent = ForeignKey('app.Gender', SET_NULL, blank=True, null=True)
-    sex = CharField(max_length=255)
-    slug = SlugField(unique=True)
-
-    def __str__(self):
-        return self.sex
-
-    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        if not self.slug:
-            self.slug = slugify(self.sex)
-            while Gender.objects.filter(slug=self.slug).exists():
-                self.slug = f'{self.slug}-1'
-
-        super().save(force_insert, force_update, using, update_fields)
-
-
-class Color(Model):
-    parent = ForeignKey('app.Color', SET_NULL, blank=True, null=True)
-    colour = CharField(max_length=255)
-    slug = SlugField(unique=True)
-
-    def __str__(self):
-        return self.colour
-
-    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        if not self.slug:
-            self.slug = slugify(self.colour)
-            while Color.objects.filter(slug=self.slug).exists():
-                self.slug = f'{self.slug}-1'
-
-        super().save(force_insert, force_update, using, update_fields)

@@ -1,5 +1,4 @@
 from django.urls import path
-from patterns import patterns
 
 from app.views import IndexPage, LoginPage, LogoutPage, ProductPage, ProductDetailPage, QuickViewPage, AllProductPage, \
     RegisterPage, FaqPage, ComparePage, AddressPage, ContactUsPage, AboutUsPage, ForgotPasswordPage, MyWishesPage, \
