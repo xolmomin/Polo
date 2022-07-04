@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.exceptions import ValidationError
+from django.core.mail import send_mail
 from django.db.transaction import atomic
 from django.forms import Form, EmailField, CharField
 from django.template.loader import render_to_string
@@ -94,7 +95,7 @@ class ForgotPasswordForm(Form):
 
 def send_email(email, request, _type):
     user = User.objects.get(email=email)
-    subject = ' POLO Shop - activate your account'
+    subject = ' POLO Shop activate your account'
     current_site = get_current_site(request)
     message = render_to_string('app/main/activation-password.html', {
         'user': user,
@@ -105,3 +106,6 @@ def send_email(email, request, _type):
 
     from_email = EMAIL_HOST_USER
     recipient_list = [email]
+
+    result = send_mail(subject, message, from_email, recipient_list)
+    print('Send to MAIL')

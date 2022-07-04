@@ -3,7 +3,7 @@ from django.contrib.auth.views import LogoutView, LoginView
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
-from app.forms import RegisterForm
+from app.forms import RegisterForm, ForgotPasswordForm, send_email
 from app.models import Product, Category, Blog
 
 from app.forms import RegisterForm, LoginForm
@@ -27,6 +27,16 @@ class RegisterPage(FormView):
 
 class LogoutPage(LogoutView):
     template_name = 'app/logout-page.html'
+
+
+class ForgotPasswordPage(FormView):
+    form_class = ForgotPasswordForm
+    success_url = reverse_lazy('index')
+    template_name = 'app/main/forgot-password.html'
+
+    def form_valid(self, form):
+        send_email(form.data.get('email'), self.request, 'forgot')
+        return super().form_valid(form)
 
 
 class LoginPage(LoginView):
@@ -104,10 +114,6 @@ class AboutUsPage(TemplateView):
     template_name = 'app/company/about_us.html'
 
 
-class ForgotPasswordPage(TemplateView):
-    template_name = 'app/main/forgot-password.html'
-
-
 class MyWishesPage(TemplateView):
     template_name = 'app/products/my-wishlist-page.html'
 
@@ -141,3 +147,7 @@ class BlogDetailsPage(TemplateView):
 
 class ProductList(TemplateView):
     template_name = 'app/products/list.html'
+
+
+class ActivateAccount(TemplateView):
+    template_name = 'app/main/forgot-password.html'

@@ -138,17 +138,20 @@ MEDIA_URL = '/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'asadbekmirtazayev0@gmail.com'
-EMAIL_HOST_PASSWORD = 'xikcmixdxbukymhv'  # app password
+EMAIL_HOST_PASSWORD = 'hxcxlwmccxwikacc'  # app password
 EMAIL_USE_TLS = True
 
-PASSWORD_RESET_TIMEOUT = 3600
+LOGIN_URL = '/'
+LOGIN_REDIRECT_URL = '/'
 
+PASSWORD_RESET_TIMEOUT = 3600
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -194,9 +197,6 @@ SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
     ('picture', 'picture'),
     ('link', 'profile_url'),
 ]
-
-LOGIN_URL = '/'
-LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
