@@ -1,11 +1,11 @@
-from django.contrib import messages
 from django.contrib.auth.views import LogoutView, LoginView
 from django.shortcuts import render
+from django.contrib import messages
+# Create your views here.
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
-
-from app.forms import RegisterForm, LoginForm
-from app.models import Product
+from app.forms import RegisterForm
+from app.models import Product, Category
 
 
 class RegisterPage(FormView):
@@ -24,24 +24,22 @@ class RegisterPage(FormView):
 
 
 class LogoutPage(LogoutView):
-    template_name = 'app/main/log-out.html'
+    template_name = 'app/logout-page.html'
 
 
 class LoginPage(LoginView):
-    form_class = LoginForm
     template_name = 'app/main/login-page.html'
-    success_url = reverse_lazy('index')
-
-    def form_valid(self, form):
-        return super().form_valid(form)
 
 
-def IndexPage(request):
-    products = Product.objects.all()
-    context = {
-        'products': products
-    }
-    return render(request, 'app/index.html', context)
+class IndexPage(TemplateView):
+    template_name = 'app/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Product'] = Product.objects.all()[:5]
+        context['Categorys'] = Category.objects.all()
+
+        return context
 
 
 class ProductPage(TemplateView):

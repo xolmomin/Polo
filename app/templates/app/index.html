@@ -5,6 +5,9 @@
 
 {% block body_main %}
 
+
+
+
     <div class="magik-slideshow wow bounceInUp animated" id="magik-slideshow">
         <div class="container">
             <div class="row">
@@ -17,579 +20,61 @@
                                     <div class="navbar">
                                         <div class="collapse navbar-collapse navbar-ex1-collapse">
                                             <ul class="nav navbar-nav verticalmenu">
-                                                <li class=" parent dropdown "><a href="{% url 'product_list' %}"
-                                                                                 class="dropdown-toggle"
-                                                                                 data-toggle="dropdown"><span
-                                                        class="menu-title">Women</span><b class="round-arrow"></b></a>
-                                                    <div class="dropdown-menu">
-                                                        <div class="dropdown-menu-inner">
-                                                            <div class="row">
-                                                                <div class="mega-col col-sm-66" data-widgets="wid-5"
-                                                                     data-colwidth="6">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="ves-widget">
-                                                                              <div class="menu-title">Styliest Bag</div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"> <span>Clutch Handbags</span>
-                                                                                        </a></li>
-                                                                                        <li><a href="{% url 'product_list' %}"> <span>Diaper Bags</span>
-                                                                                        </a></li>
-                                                                                        <li><a href="{% url 'product_list' %}">
-                                                                                            <span>Bags</span> </a></li>
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"> <span>Hobo Handbags</span>
-                                                                                        </a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mega-col col-sm-66" data-colwidth="6"
-                                                                     data-widgets="wid-7">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="menu-title">Material Bag</div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"> <span>Beaded Handbags</span>
-                                                                                        </a></li>
-                                                                                        <li><a href="{% url 'product_list' %}"> <span>Fabric Handbags</span>
-                                                                                        </a></li>
-                                                                                        <li><a href="{% url 'product_list' %}"> <span>Handbags</span>
-                                                                                        </a></li>
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"> <span>Leather Handbags</span>
-                                                                                        </a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mega-col col-sm-66" data-colwidth="6"
-                                                                     data-widgets="wid-7">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="menu-title">Designer Bag</div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"> <span>Flat Shoes</span>
-                                                                                        </a></li>
-                                                                                        <li><a href="{% url 'product_list' %}"> <span>Flat Sandals</span>
-                                                                                        </a></li>
-                                                                                        <li><a href="{% url 'product_list' %}">
-                                                                                            <span>Boots</span> </a></li>
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"> <span>Heels</span>
-                                                                                        </a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mega-col col-sm-66 " data-colwidth="6"
-                                                                     data-widgets="wid-7">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="menu-title">Cotton Bag</div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"> <span>Bracelets</span>
-                                                                                        </a></li>
-                                                                                        <li><a href="{% url 'product_list' %}"> <span>Necklaces &amp; Pendants</span>
-                                                                                        </a></li>
-                                                                                        <li><a href="{% url 'product_list' %}"> <span>Pendants</span>
-                                                                                        </a></li>
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"> <span>Pins &amp; Brooches</span>
-                                                                                        </a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                {% for i in Categorys %}
+                                                    {% if not i.parent_id %}
+                                                        <li class=" parent dropdown "><a href="{% url 'product_list' %}"
+                                                                                         class="dropdown-toggle"
+                                                                                         data-toggle="dropdown"><span
+                                                                class="menu-title">{{ i.name }}</span><b
+                                                                class="round-arrow"></b></a>
+                                                            <div class="dropdown-menu">
+                                                                <div class="dropdown-menu-inner">
+                                                                    <div class="row">
+                                                                        {% for x in Categorys %}
+                                                                            {% if x.parent_id == i.id %}
+                                                                                <div class="mega-col col-sm-66"
+                                                                                     data-widgets="wid-5"
+                                                                                     data-colwidth="6">
+                                                                                    <div class="mega-col-inner">
+                                                                                        <div class="ves-widget">
+                                                                                            <div class="menu-title">
 
-                                                    </div>
-                                                </li>
-                                                <li class="parent dropdown "><a href="{% url 'product_list' %}" class="dropdown-toggle"
-                                                                                data-toggle="dropdown"><span
-                                                        class="menu-title">Men</span><b class="round-arrow"></b></a>
-                                                    <div class="dropdown-menu">
-                                                        <div class="dropdown-menu-inner">
-                                                            <div class="row">
-                                                                <div class="mega-col col-sm-66 " data-widgets="wid-5"
-                                                                     data-colwidth="6">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="ves-widget">
-                                                                            <div class="menu-title">Shoes</div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"><span>Sport Shoes</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Casual Shoes</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Leather Shoes</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"><span>Canvas shoes</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mega-col col-sm-66" data-colwidth="6"
-                                                                     data-widgets="wid-7">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="menu-title">Dresses</div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"><span>Casual Dresses</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Evening</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Designer</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"><span>Party</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mega-col col-sm-66 " data-colwidth="6"
-                                                                     data-widgets="wid-7">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="menu-title">Jackets</div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"><span>Coats</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Formal Jackets</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Leather Jackets</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"><span>Blazers</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mega-col col-sm-66 " data-colwidth="6"
-                                                                     data-widgets="wid-7">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="menu-title">Watches</div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"><span>Fasttrack</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li>
-                                                                                            <a href="{% url 'product_list' %}"><span>Casio</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li>
-                                                                                            <a href="{% url 'product_list' %}"><span>Titan</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"><span>Tommy-Hilfiger</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="parent dropdown "><a class="dropdown-toggle"
-                                                                                data-toggle="dropdown"
-                                                                                href="{% url 'product_list' %}"><span
-                                                        class="menu-title">Electronics</span><b
-                                                        class="round-arrow"></b></a>
-                                                    <div class="dropdown-menu">
-                                                        <div class="dropdown-menu-inner">
-                                                            <div class="row">
-                                                                <div class="mega-col col-sm-66 " data-widgets="wid-5"
-                                                                     data-colwidth="6">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="ves-widget">
-                                                                            <div class="menu-title">Mobiles</div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"><span>Samsung</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li>
-                                                                                            <a href="{% url 'product_list' %}"><span>Nokia</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li>
-                                                                                            <a href="{% url 'product_list' %}"><span>iPhone</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"><span>Sony</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mega-col col-sm-66 " data-colwidth="6"
-                                                                     data-widgets="wid-7">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="menu-title">Mobiles Accesories
-                                                                            </div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"><span>Mobile Memory Cards</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Cases &amp; Covers</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Mobile Headphones</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"><span>Bluetooth Headsets</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mega-col col-sm-66 " data-colwidth="6"
-                                                                     data-widgets="wid-7">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="menu-title">Cameras</div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"><span>Camcorders</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Point &amp; Shoot</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Digital SLR</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"><span>Camera Accesories</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mega-col col-sm-66 " data-colwidth="6"
-                                                                     data-widgets="wid-7">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="menu-title">Audio & Video</div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"><span>MP3 Players</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li>
-                                                                                            <a href="{% url 'product_list' %}"><span>IPods</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Speakers</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"><span>Video Players</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="parent dropdown "><a class="dropdown-toggle"
-                                                                                data-toggle="dropdown"
-                                                                                href="{% url 'product_list' %}"><span
-                                                        class="menu-title">Furniture</span><b
-                                                        class="round-arrow"></b></a>
-                                                    <div class="dropdown-menu">
-                                                        <div class="dropdown-menu-inner">
-                                                            <div class="row">
-                                                                <div class="mega-col col-sm-66 " data-widgets="wid-5"
-                                                                     data-colwidth="6">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="ves-widget">
-                                                                            <div class="menu-title">Living Room</div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"><span>Racks &amp; Cabinets</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li>
-                                                                                            <a href="{% url 'product_list' %}"><span>Sofas</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li>
-                                                                                            <a href="{% url 'product_list' %}"><span>Chairs</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"><span>Tables</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mega-col col-sm-66 " data-colwidth="6"
-                                                                     data-widgets="wid-7">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="menu-title">Dining & Bar</div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"><span>Dining Table Sets</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Serving Trolleys</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Bar Counters</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"><span>Dining Cabinets</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
 
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mega-col col-sm-66 " data-colwidth="6"
-                                                                     data-widgets="wid-7">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="menu-title">Bedroom</div>
-                                                                            <div class="widget-html">
-                                                                                <div class="widget-inner">
-                                                                                    <ul>
-                                                                                        <li class="first"><a
-                                                                                                href="{% url 'product_list' %}"><span>Beds</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Chest of Drawers</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li><a href="{% url 'product_list' %}"><span>Wardrobes &amp; Almirahs</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                        <li class="last"><a
-                                                                                                href="{% url 'product_list' %}"><span>Nightstands</span></a>
-                                                                                        </li>
-                                                                                        <!--level2 nav-6-1-1-->
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div data-widgets="wid-8" data-colwidth="6"
-                                                                     class="mega-col col-sm-66 ">
-                                                                    <div class="mega-col-inner">
-                                                                        <div id="wid-8" class="magik-widget">
-                                                                            <!-- <div class="menu-title">Demo Images</div> -->
-                                                                            <div class="widget-image">
-                                                                                <div class="widget-inner clearfix">
-                                                                                    <div><img title="" alt=""
-                                                                                              src="{% static 'app/images/menu_furniture1.png' %}">
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class=""><a href="{% url 'product_list' %}"><span
-                                                        class="menu-title"> Boys</span></a>
-                                                </li>
-                                                <li class=""><a href="{% url 'product_list' %}"><span
-                                                        class="menu-title">Girls</span></a>
-                                                </li>
-                                                <li class=" parent dropdown "><a href="#/televisions.html"
-                                                                                 class="dropdown-toggle"
-                                                                                 data-toggle="dropdown"><span
-                                                        class="menu-title">Custom</span><b class="round-arrow"></b></a>
-                                                    <div class="dropdown-menu">
-                                                        <div class="dropdown-menu-inner">
-                                                            <div class="row">
-                                                                <div class="mega-col col-sm-88 " data-widgets="wid-1"
-                                                                     data-colwidth="8">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="product-block">
-                                                                                <div class="image"><a
-                                                                                        href="#/fauxwaii-shirt-oldss.html"><img
-                                                                                        src="{% static 'app/images/custom-img1.jpg' %}"
-                                                                                        alt="Fauxwaii Shirt - Oldss"></a>
-                                                                                </div>
-                                                                                <p>Lorem ipsum dolor sit amet,
-                                                                                    consectetur
-                                                                                    adipiscing elit. Nam fringilla
-                                                                                    augue.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mega-col col-sm-88 " data-widgets="wid-2"
-                                                                     data-colwidth="8">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="widget-product">
-                                                                                <div class="widget-inner">
-                                                                                    <div class="product-block">
-                                                                                        <div class="image"><a
-                                                                                                href="#/framed-sleeve-mid.html"><img
-                                                                                                src="{% static 'app/images/custom-img2.jpg' %}"
-                                                                                                alt="Framed-Sleeve Mid"></a>
+                                                                                                {{ x.name }}
+
+
+                                                                                            </div>
+                                                                                            <div class="widget-html">
+                                                                                                <div class="widget-inner">
+                                                                                                    <ul>
+                                                                                                        {% for y in Categorys %}
+                                                                                                            {% if x.id == y.parent_id %}
+                                                                                                            <li>
+                                                                                                                <a
+                                                                                                                        href="{% url 'product_list' %}">
+                                                                                                                    <span>{{ y.name }}</span>
+                                                                                                                </a>
+                                                                                                            </li>
+                                                                                                            {% endif %}
+                                                                                                        {% endfor %}
+
+                                                                                                    </ul>
+                                                                                                </div>
+                                                                                            </div>
                                                                                         </div>
-                                                                                        <p>Lorem ipsum dolor sit amet,
-                                                                                            consectetur adipiscing elit.
-                                                                                            Nam
-                                                                                            fringilla augue.</p>
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </div>
+                                                                            {% endif %}
+                                                                        {% endfor %}
+
                                                                     </div>
                                                                 </div>
+
                                                             </div>
-                                                            <div class="row">
-                                                                <div class="mega-col col-sm-88 " data-widgets="wid-1"
-                                                                     data-colwidth="8">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="product-block">
-                                                                                <div class="image"><a
-                                                                                        href="#/fauxwaii-shirt-oldss.html"><img
-                                                                                        src="{% static 'app/images/custom-img3.jpg' %}"
-                                                                                        alt="Fauxwaii Shirt - Oldss"></a>
-                                                                                </div>
-                                                                                <p>Lorem ipsum dolor sit amet,
-                                                                                    consectetur
-                                                                                    adipiscing elit. Nam fringilla
-                                                                                    augue.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mega-col col-sm-88 " data-widgets="wid-2"
-                                                                     data-colwidth="8">
-                                                                    <div class="mega-col-inner">
-                                                                        <div class="magik-widget">
-                                                                            <div class="widget-product">
-                                                                                <div class="widget-inner">
-                                                                                    <div class="product-block">
-                                                                                        <div class="image"><a
-                                                                                                href="#/framed-sleeve-mid.html"><img
-                                                                                                src="{% static 'app/images/custom-img4.jpg' %}"
-                                                                                                alt="Framed-Sleeve Mid"></a>
-                                                                                        </div>
-                                                                                        <p>Lorem ipsum dolor sit amet,
-                                                                                            consectetur adipiscing elit.
-                                                                                            Nam
-                                                                                            fringilla augue.</p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
+
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
                                             </ul>
                                         </div>
                                     </div>
@@ -603,10 +88,11 @@
                         <div id='rev_slider_4' class='rev_slider fullwidthabanner'>
                             <ul>
                                 <li data-transition='random' data-slotamount='7' data-masterspeed='1000'
-                                    data-thumb='{% static 'app/images/slider_img_2.jpg' %}'><img src='{% static 'app/images/slide-img1.jpg' %}'
-                                                                              data-bgposition='left top'
-                                                                              data-bgfit='cover'
-                                                                              data-bgrepeat='no-repeat' alt="banner"/>
+                                    data-thumb='{% static 'app/images/slider_img_2.jpg' %}'><img
+                                        src='{% static 'app/images/slide-img1.jpg' %}'
+                                        data-bgposition='left top'
+                                        data-bgfit='cover'
+                                        data-bgrepeat='no-repeat' alt="banner"/>
                                     <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='45' data-y='30'
                                          data-endspeed='500' data-speed='500' data-start='1100'
                                          data-easing='Linear.easeNone' data-splitin='none' data-splitout='none'
@@ -694,8 +180,10 @@
                 </div>
                 <aside class="col-xs-12 col-sm-12 col-md-3">
                     <div class="RHS-banner">
-                        <div class="add"><a href="#"><img alt="banner-img" src="{% static 'app/images/rhs-banner1.jpg' %}"></a></div>
-                        <div class="add"><a href="#"><img alt="banner-img" src="{% static 'app/images/rhs-banner1.jpg' %}"></a></div>
+                        <div class="add"><a href="#"><img alt="banner-img"
+                                                          src="{% static 'app/images/rhs-banner1.jpg' %}"></a></div>
+                        <div class="add"><a href="#"><img alt="banner-img"
+                                                          src="{% static 'app/images/rhs-banner1.jpg' %}"></a></div>
                     </div>
                 </aside>
             </div>
@@ -751,52 +239,58 @@
                         <div id="best-seller-slider" class="product-flexslider hidden-buttons">
                             <div class="slider-items slider-width-col4">
                                 {% for product in products %}
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="col-item">
-                                        <div class="sale-label sale-top-right">Sale</div>
-                                        <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail' %}"> <img
-                                                src="{% static 'app/images/products-product1.jpg' %}" class="img-responsive"
-                                                alt="product-image"/> </a>
-                                            <div class="hover_fly"><a class="exclusive ajax_add_to_cart_button" href="#"
-                                                                      title="Add to cart">
-                                                <div><i class="icon-shopping-cart"></i><span>Add to cart</span></div>
-                                            </a> <a class="quick-view" href="{% url 'quick_view_product' %}">
-                                                <div><i class="icon-eye-open"></i><span>Quick view</span></div>
-                                            </a> <a class="add_to_compare" href="{% url 'compare_page' %}">
-                                                <div><i class="icon-random"></i><span>Add to compare</span></div>
-                                            </a> <a class="addToWishlist wishlistProd_5" href="{% url 'my_wishlist_page' %}">
-                                                <div><i class="icon-heart"></i><span>Add to Wishlist</span></div>
-                                            </a></div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="info-inner">
-                                                <div class="item-title"><a title=" Sample Product"
-                                                                           href="{% url 'product_detail_with_id' product.id %}"> {{ product.title }}</a>
-                                                </div>
-                                                <!--item-title-->
-                                                <div class="item-content">
-                                                    <div class="ratings">
-                                                        <div class="rating-box">
-                                                            <div class="rating"></div>
+                                    <!-- Item -->
+                                    <div class="item">
+                                        <div class="col-item">
+                                            <div class="sale-label sale-top-right">Sale</div>
+                                            <div class="product-image-area"><a class="product-image"
+                                                                               title="Sample Product"
+                                                                               href="{% url 'product_detail' %}"> <img
+                                                    src="{% static 'app/images/products-product1.jpg' %}"
+                                                    class="img-responsive"
+                                                    alt="product-image"/> </a>
+                                                <div class="hover_fly"><a class="exclusive ajax_add_to_cart_button"
+                                                                          href="#"
+                                                                          title="Add to cart">
+                                                    <div><i class="icon-shopping-cart"></i><span>Add to cart</span>
+                                                    </div>
+                                                </a> <a class="quick-view" href="{% url 'quick_view_product' %}">
+                                                    <div><i class="icon-eye-open"></i><span>Quick view</span></div>
+                                                </a> <a class="add_to_compare" href="{% url 'compare_page' %}">
+                                                    <div><i class="icon-random"></i><span>Add to compare</span></div>
+                                                </a> <a class="addToWishlist wishlistProd_5"
+                                                        href="{% url 'my_wishlist_page' %}">
+                                                    <div><i class="icon-heart"></i><span>Add to Wishlist</span></div>
+                                                </a></div>
+                                            </div>
+                                            <div class="info">
+                                                <div class="info-inner">
+                                                    <div class="item-title"><a title=" Sample Product"
+                                                                               href="{% url 'product_detail_with_id' product.id %}"> {{ product.title }}</a>
+                                                    </div>
+                                                    <!--item-title-->
+                                                    <div class="item-content">
+                                                        <div class="ratings">
+                                                            <div class="rating-box">
+                                                                <div class="rating"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-box">
+                                                            <p class="special-price"><span
+                                                                    class="price">{{ product.discount }} </span></p>
+                                                            <p class="old-price"><span class="price-sep">-</span> <span
+                                                                    class="price">{{ product.price }}</span></p>
                                                         </div>
                                                     </div>
-                                                    <div class="price-box">
-                                                        <p class="special-price"><span class="price">{{ product.discount }} </span></p>
-                                                        <p class="old-price"><span class="price-sep">-</span> <span
-                                                                class="price">{{ product.price }}</span></p>
-                                                    </div>
+                                                    <!--item-content-->
                                                 </div>
-                                                <!--item-content-->
-                                            </div>
-                                            <!--info-inner-->
+                                                <!--info-inner-->
 
-                                            <div class="clearfix"></div>
+                                                <div class="clearfix"></div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- End Item -->
+                                    <!-- End Item -->
                                 {% endfor %}
                             </div>
                         </div>
@@ -839,380 +333,57 @@
                 <div class="slider-items slider-width-col4">
 
                     <!-- Item -->
-                    <div class="item">
-                        <div class="col-item">
-                            <div class="sale-label sale-top-right">Sale</div>
-                            <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                               href="{% url 'product_detail' %}"> <img
-                                    src="{% static 'app/images/products-product1.jpg' %}" class="img-responsive" alt="a"/> </a>
-                                <div class="actions-links"><span class="add-to-links"> <a title="magik-btn-quickview"
-                                                                                          class="magik-btn-quickview"
-                                                                                          href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                        title="Add to Wishlist" class="link-wishlist" href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                        title="Add to Compare" class="link-compare"
-                                        href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span></div>
-                            </div>
-                            <div class="info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a title=" Sample Product" href="{% url 'product_detail' %}">
-                                        Sample
-                                        Product </a></div>
-                                    <!--item-title-->
-                                    <div class="item-content">
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div class="rating"></div>
+                    {% for i in Product %}
+                        <div class="item">
+                            <div class="col-item">
+                                <div class="sale-label sale-top-right">{{ i.category }}</div>
+                                <div class="product-image-area"><a class="product-image" title="Sample Product"
+                                                                   href="{% url 'product_detail' %} {{ i.id }}"> <img
+                                        src="{{ i.image.url }}" class="img-responsive"
+                                        alt="a"/> </a>
+                                    <div class="actions-links"><span class="add-to-links"> <a
+                                            title="magik-btn-quickview"
+                                            class="magik-btn-quickview"
+                                            href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
+                                            title="Add to Wishlist" class="link-wishlist"
+                                            href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
+                                            title="Add to Compare" class="link-compare"
+                                            href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span></div>
+                                </div>
+                                <div class="info">
+                                    <div class="info-inner">
+                                        <div class="item-title"><a title=" Sample Product"
+                                                                   href="{% url 'product_detail' %}">
+                                            {{ i.title }}</a></div>
+                                        <!--item-title-->
+                                        <div class="item-content">
+                                            <div class="ratings">
+                                                <div class="rating-box">
+                                                    <div class="rating"></div>
+                                                </div>
+                                            </div>
+                                            <div class="price-box">
+                                                <p class="special-price"><span class="price"> $45.00 </span></p>
+                                                <p class="old-price"><span class="price-sep">-</span> <span
+                                                        class="price"> $50.00 </span>
+                                                </p>
                                             </div>
                                         </div>
-                                        <div class="price-box">
-                                            <p class="special-price"><span class="price"> $45.00 </span></p>
-                                            <p class="old-price"><span class="price-sep">-</span> <span class="price"> $50.00 </span>
-                                            </p>
-                                        </div>
+                                        <!--item-content-->
                                     </div>
-                                    <!--item-content-->
-                                </div>
-                                <!--info-inner-->
-                                <div class="actions">
-                                    <button type="button" title="Add to Cart" class="button btn-cart">
-                                        <span>Add to Cart</span></button>
-                                </div>
-                                <!--actions-->
+                                    <!--info-inner-->
+                                    <div class="actions">
+                                        <button type="button" title="Add to Cart" class="button btn-cart">
+                                            <span>Add to Cart</span></button>
+                                    </div>
+                                    <!--actions-->
 
-                                <div class="clearfix"></div>
+                                    <div class="clearfix"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- End Item -->
+                    {% endfor %}
 
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="col-item">
-                            <div class="new-label new-top-right">New</div>
-                            <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                               href="{% url 'product_detail' %}"> <img
-                                    src="{% static 'app/images/products-product1.jpg' %}" class="img-responsive" alt="a"/> </a>
-                                <div class="actions-links"><span class="add-to-links"> <a title="magik-btn-quickview"
-                                                                                          class="magik-btn-quickview"
-                                                                                          href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                        title="Add to Wishlist" class="link-wishlist" href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                        title="Add to Compare" class="link-compare"
-                                        href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span></div>
-                            </div>
-                            <div class="info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a title=" Sample Product" href="{% url 'product_detail' %}">
-                                        Sample
-                                        Product </a></div>
-                                    <!--item-title-->
-                                    <div class="item-content">
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div class="rating"></div>
-                                            </div>
-                                        </div>
-                                        <div class="price-box"><span class="regular-price"> <span
-                                                class="price">$422.00</span> </span></div>
-                                    </div>
-                                    <!--item-content-->
-                                </div>
-                                <!--info-inner-->
-                                <div class="actions">
-                                    <button type="button" title="Add to Cart" class="button btn-cart">
-                                        <span>Add to Cart</span></button>
-                                </div>
-                                <!--actions-->
-
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
-
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="col-item">
-                            <div class="sale-label sale-top-right">Sale</div>
-                            <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                               href="{% url 'product_detail' %}"> <img alt="a"
-                                                                                                class="img-responsive"
-                                                                                                src="{% static 'app/images/products-product1.jpg' %}">
-                            </a>
-                                <div class="actions-links"><span class="add-to-links"> <a title="magik-btn-quickview"
-                                                                                          class="magik-btn-quickview"
-                                                                                          href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                        title="Add to Wishlist" class="link-wishlist" href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                        title="Add to Compare" class="link-compare"
-                                        href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span></div>
-                            </div>
-                            <div class="info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a title=" Sample Product" href="{% url 'product_detail' %}">
-                                        Sample
-                                        Product </a></div>
-                                    <!--item-title-->
-                                    <div class="item-content">
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div class="rating"></div>
-                                            </div>
-                                        </div>
-                                        <div class="price-box"><span class="regular-price"> <span
-                                                class="price">$50.00</span> </span></div>
-                                    </div>
-                                    <!--item-content-->
-                                </div>
-                                <!--info-inner-->
-                                <div class="actions">
-                                    <button class="button btn-cart" title="Add to Cart" type="button">
-                                        <span>Add to Cart</span></button>
-                                </div>
-                                <!--actions-->
-
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
-
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="col-item">
-                            <div class="sale-label sale-top-right">Sale</div>
-                            <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                               href="{% url 'product_detail' %}"> <img alt="a"
-                                                                                                class="img-responsive"
-                                                                                                src="{% static 'app/images/products-product1.jpg' %}">
-                            </a>
-                                <div class="actions-links"><span class="add-to-links"> <a title="magik-btn-quickview"
-                                                                                          class="magik-btn-quickview"
-                                                                                          href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                        title="Add to Wishlist" class="link-wishlist" href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                        title="Add to Compare" class="link-compare"
-                                        href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span></div>
-                            </div>
-                            <div class="info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a title=" Sample Product" href="{% url 'product_detail' %}">
-                                        Sample
-                                        Product </a></div>
-                                    <!--item-title-->
-                                    <div class="item-content">
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div class="rating"></div>
-                                            </div>
-                                        </div>
-                                        <div class="price-box">
-                                            <p class="special-price"><span class="price"> $45.00 </span></p>
-                                            <p class="old-price"><span class="price-sep">-</span> <span class="price"> $50.00 </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!--item-content-->
-                                </div>
-                                <!--info-inner-->
-                                <div class="actions">
-                                    <button class="button btn-cart" title="Add to Cart" type="button">
-                                        <span>Add to Cart</span></button>
-                                </div>
-                                <!--actions-->
-
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
-
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="col-item">
-                            <div class="sale-label sale-top-right">Sale</div>
-                            <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                               href="{% url 'product_detail' %}"> <img alt="a"
-                                                                                                class="img-responsive"
-                                                                                                src="{% static 'app/images/products-product1.jpg' %}">
-                            </a>
-                                <div class="actions-links"><span class="add-to-links"> <a title="magik-btn-quickview"
-                                                                                          class="magik-btn-quickview"
-                                                                                          href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                        title="Add to Wishlist" class="link-wishlist" href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                        title="Add to Compare" class="link-compare"
-                                        href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span></div>
-                            </div>
-                            <div class="info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a title=" Sample Product" href="{% url 'product_detail' %}">
-                                        Sample
-                                        Product </a></div>
-                                    <!--item-title-->
-                                    <div class="item-content">
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div class="rating"></div>
-                                            </div>
-                                        </div>
-                                        <div class="price-box">
-                                            <p class="special-price"><span class="price"> $45.00 </span></p>
-                                            <p class="old-price"><span class="price-sep">-</span> <span class="price"> $50.00 </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!--item-content-->
-                                </div>
-                                <!--info-inner-->
-                                <div class="actions">
-                                    <button class="button btn-cart" title="Add to Cart" type="button">
-                                        <span>Add to Cart</span></button>
-                                </div>
-                                <!--actions-->
-
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
-
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="col-item">
-                            <div class="new-label new-top-right">New</div>
-                            <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                               href="{% url 'product_detail' %}"> <img alt="a"
-                                                                                                class="img-responsive"
-                                                                                                src="{% static 'app/images/products-product1.jpg' %}">
-                            </a>
-                                <div class="actions-links"><span class="add-to-links"> <a title="magik-btn-quickview"
-                                                                                          class="magik-btn-quickview"
-                                                                                          href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                        title="Add to Wishlist" class="link-wishlist" href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                        title="Add to Compare" class="link-compare"
-                                        href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span></div>
-                            </div>
-                            <div class="info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a title=" Sample Product" href="{% url 'product_detail' %}">
-                                        Sample
-                                        Product </a></div>
-                                    <!--item-title-->
-                                    <div class="item-content">
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div class="rating"></div>
-                                            </div>
-                                        </div>
-                                        <div class="price-box"><span class="regular-price"> <span
-                                                class="price">$422.00</span> </span></div>
-                                    </div>
-                                    <!--item-content-->
-                                </div>
-                                <!--info-inner-->
-                                <div class="actions">
-                                    <button class="button btn-cart" title="Add to Cart" type="button">
-                                        <span>Add to Cart</span></button>
-                                </div>
-                                <!--actions-->
-
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
-
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="col-item">
-                            <div class="sale-label sale-top-right">Sale</div>
-                            <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                               href="{% url 'product_detail' %}"> <img alt="a"
-                                                                                                class="img-responsive"
-                                                                                                src="{% static 'app/images/products-product1.jpg' %}">
-                            </a>
-                                <div class="actions-links"><span class="add-to-links"> <a title="magik-btn-quickview"
-                                                                                          class="magik-btn-quickview"
-                                                                                          href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                        title="Add to Wishlist" class="link-wishlist" href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                        title="Add to Compare" class="link-compare"
-                                        href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span></div>
-                            </div>
-                            <div class="info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a title=" Sample Product" href="{% url 'product_detail' %}">
-                                        Sample
-                                        Product </a></div>
-                                    <!--item-title-->
-                                    <div class="item-content">
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div class="rating"></div>
-                                            </div>
-                                        </div>
-                                        <div class="price-box"><span class="regular-price"> <span
-                                                class="price">$50.00</span> </span></div>
-                                    </div>
-                                    <!--item-content-->
-                                </div>
-                                <!--info-inner-->
-                                <div class="actions">
-                                    <button class="button btn-cart" title="Add to Cart" type="button">
-                                        <span>Add to Cart</span></button>
-                                </div>
-                                <!--actions-->
-
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
-
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="col-item">
-                            <div class="sale-label sale-top-right">Sale</div>
-                            <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                               href="{% url 'product_detail' %}"> <img alt="a"
-                                                                                                class="img-responsive"
-                                                                                                src="{% static 'app/images/products-product1.jpg' %}">
-                            </a>
-                                <div class="actions-links"><span class="add-to-links"> <a title="magik-btn-quickview"
-                                                                                          class="magik-btn-quickview"
-                                                                                          href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
-                                        title="Add to Wishlist" class="link-wishlist" href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
-                                        title="Add to Compare" class="link-compare"
-                                        href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span></div>
-                            </div>
-                            <div class="info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a title=" Sample Product" href="{% url 'product_detail' %}">
-                                        Sample
-                                        Product </a></div>
-                                    <!--item-title-->
-                                    <div class="item-content">
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div class="rating"></div>
-                                            </div>
-                                        </div>
-                                        <div class="price-box">
-                                            <p class="special-price"><span class="price"> $45.00 </span></p>
-                                            <p class="old-price"><span class="price-sep">-</span> <span class="price"> $50.00 </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!--item-content-->
-                                </div>
-                                <!--info-inner-->
-                                <div class="actions">
-                                    <button class="button btn-cart" title="Add to Cart" type="button">
-                                        <span>Add to Cart</span></button>
-                                </div>
-                                <!--actions-->
-
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
 
                 </div>
             </div>
@@ -1243,7 +414,8 @@
                                     <div class="col-item">
                                         <div class="product-image-area"><a class="product-image" title="Sample Product"
                                                                            href="{% url 'product_detail' %}"> <img
-                                                src="{% static 'app/images/products-product1.jpg' %}" class="img-responsive" alt="a"/> </a>
+                                                src="{% static 'app/images/products-product1.jpg' %}"
+                                                class="img-responsive" alt="a"/> </a>
                                             <div class="actions-links"><span class="add-to-links"> <a
                                                     title="magik-btn-quickview" class="magik-btn-quickview"
                                                     href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
@@ -1292,7 +464,8 @@
                                     <div class="col-item">
                                         <div class="product-image-area"><a class="product-image" title="Sample Product"
                                                                            href="{% url 'product_detail' %}"> <img
-                                                src="{% static 'app/images/products-product1.jpg' %}" class="img-responsive" alt="a"/> </a>
+                                                src="{% static 'app/images/products-product1.jpg' %}"
+                                                class="img-responsive" alt="a"/> </a>
                                             <div class="actions-links"><span class="add-to-links"> <a
                                                     title="magik-btn-quickview" class="magik-btn-quickview"
                                                     href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
@@ -1338,9 +511,10 @@
                                 <div class="item">
                                     <div class="col-item">
                                         <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail' %}"> <img alt="a"
-                                                                                                            class="img-responsive"
-                                                                                                            src="{% static 'app/images/products-product1.jpg' %}">
+                                                                           href="{% url 'product_detail' %}"> <img
+                                                alt="a"
+                                                class="img-responsive"
+                                                src="{% static 'app/images/products-product1.jpg' %}">
                                         </a>
                                             <div class="actions-links"><span class="add-to-links"> <a
                                                     title="magik-btn-quickview" class="magik-btn-quickview"
@@ -1387,9 +561,10 @@
                                 <div class="item">
                                     <div class="col-item">
                                         <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail' %}"> <img alt="a"
-                                                                                                            class="img-responsive"
-                                                                                                            src="{% static 'app/images/products-product1.jpg' %}">
+                                                                           href="{% url 'product_detail' %}"> <img
+                                                alt="a"
+                                                class="img-responsive"
+                                                src="{% static 'app/images/products-product1.jpg' %}">
                                         </a>
                                             <div class="actions-links"><span class="add-to-links"> <a
                                                     title="magik-btn-quickview" class="magik-btn-quickview"
@@ -1438,9 +613,10 @@
                                 <div class="item">
                                     <div class="col-item">
                                         <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail' %}"> <img alt="a"
-                                                                                                            class="img-responsive"
-                                                                                                            src="{% static 'app/images/products-product1.jpg' %}">
+                                                                           href="{% url 'product_detail' %}"> <img
+                                                alt="a"
+                                                class="img-responsive"
+                                                src="{% static 'app/images/products-product1.jpg' %}">
                                         </a>
                                             <div class="actions-links"><span class="add-to-links"> <a
                                                     title="magik-btn-quickview" class="magik-btn-quickview"
@@ -1489,9 +665,10 @@
                                 <div class="item">
                                     <div class="col-item">
                                         <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail' %}"> <img alt="a"
-                                                                                                            class="img-responsive"
-                                                                                                            src="{% static 'app/images/products-product1.jpg' %}">
+                                                                           href="{% url 'product_detail' %}"> <img
+                                                alt="a"
+                                                class="img-responsive"
+                                                src="{% static 'app/images/products-product1.jpg' %}">
                                         </a>
                                             <div class="actions-links"><span class="add-to-links"> <a
                                                     title="magik-btn-quickview" class="magik-btn-quickview"
@@ -1553,7 +730,8 @@
                                     <div class="col-item">
                                         <div class="product-image-area"><a class="product-image" title="Sample Product"
                                                                            href="{% url 'product_detail' %}"> <img
-                                                src="{% static 'app/images/products-product1.jpg' %}" class="img-responsive" alt="a"/> </a>
+                                                src="{% static 'app/images/products-product1.jpg' %}"
+                                                class="img-responsive" alt="a"/> </a>
                                             <div class="actions-links"><span class="add-to-links"> <a
                                                     title="magik-btn-quickview" class="magik-btn-quickview"
                                                     href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
@@ -1602,7 +780,8 @@
                                     <div class="col-item">
                                         <div class="product-image-area"><a class="product-image" title="Sample Product"
                                                                            href="{% url 'product_detail' %}"> <img
-                                                src="{% static 'app/images/products-product1.jpg' %}" class="img-responsive" alt="a"/> </a>
+                                                src="{% static 'app/images/products-product1.jpg' %}"
+                                                class="img-responsive" alt="a"/> </a>
                                             <div class="actions-links"><span class="add-to-links"> <a
                                                     title="magik-btn-quickview" class="magik-btn-quickview"
                                                     href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
@@ -1648,9 +827,10 @@
                                 <div class="item">
                                     <div class="col-item">
                                         <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail' %}"> <img alt="a"
-                                                                                                            class="img-responsive"
-                                                                                                            src="{% static 'app/images/products-product1.jpg' %}">
+                                                                           href="{% url 'product_detail' %}"> <img
+                                                alt="a"
+                                                class="img-responsive"
+                                                src="{% static 'app/images/products-product1.jpg' %}">
                                         </a>
                                             <div class="actions-links"><span class="add-to-links"> <a
                                                     title="magik-btn-quickview" class="magik-btn-quickview"
@@ -1697,9 +877,10 @@
                                 <div class="item">
                                     <div class="col-item">
                                         <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail' %}"> <img alt="a"
-                                                                                                            class="img-responsive"
-                                                                                                            src="{% static 'app/images/products-product1.jpg' %}">
+                                                                           href="{% url 'product_detail' %}"> <img
+                                                alt="a"
+                                                class="img-responsive"
+                                                src="{% static 'app/images/products-product1.jpg' %}">
                                         </a>
                                             <div class="actions-links"><span class="add-to-links"> <a
                                                     title="magik-btn-quickview" class="magik-btn-quickview"
@@ -1748,9 +929,10 @@
                                 <div class="item">
                                     <div class="col-item">
                                         <div class="product-image-area"><a class="product-image" title="Sample Product"
-                                                                           href="{% url 'product_detail' %}"> <img alt="a"
-                                                                                                            class="img-responsive"
-                                                                                                            src="{% static 'app/images/products-product1.jpg' %}">
+                                                                           href="{% url 'product_detail' %}"> <img
+                                                alt="a"
+                                                class="img-responsive"
+                                                src="{% static 'app/images/products-product1.jpg' %}">
                                         </a>
                                             <div class="actions-links"><span class="add-to-links"> <a
                                                     title="magik-btn-quickview" class="magik-btn-quickview"
