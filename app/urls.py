@@ -32,7 +32,7 @@ urlpatterns = [
 
     # blog
     path('polo-blog/', BlogPage.as_view(), name='blog_page'),
-    path('blog-details/', BlogDetailsPage.as_view(), name='blog_details_page'),
+    path('blog-details/<int:blog_id>', BlogDetailsPage.as_view(), name='blog_details_page'),
 
     # user urls
     path('my-wishes/', MyWishesPage.as_view(), name='my_wishlist_page'),

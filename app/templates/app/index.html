@@ -1,13 +1,6 @@
 {% extends 'app/auth/base.html' %}
 {% load static %}
-
-
-
 {% block body_main %}
-
-
-
-
     <div class="magik-slideshow wow bounceInUp animated" id="magik-slideshow">
         <div class="container">
             <div class="row">
@@ -38,11 +31,7 @@
                                                                                     <div class="mega-col-inner">
                                                                                         <div class="ves-widget">
                                                                                             <div class="menu-title">
-
-
                                                                                                 {{ x.name }}
-
-
                                                                                             </div>
                                                                                             <div class="widget-html">
                                                                                                 <div class="widget-inner">
@@ -51,7 +40,7 @@
                                                                                                             {% if x.id == y.parent_id %}
                                                                                                                 <li>
                                                                                                                     <a
-                                                                                                                            href="{% url 'product_list' %}">
+                                                                                                                            href="{% url 'index' %}">
                                                                                                                         <span>{{ y.name }}</span>
                                                                                                                     </a>
                                                                                                                 </li>
@@ -88,8 +77,8 @@
                         <div id='rev_slider_4' class='rev_slider fullwidthabanner'>
                             <ul>
                                 <li data-transition='random' data-slotamount='7' data-masterspeed='1000'
-                                    data-thumb='{% static 'app/images/slider_img_2.jpg' %}'><img
-                                        src='{% static 'app/images/slide-img1.jpg' %}'
+                                    data-thumb='{% static 'app/images/polo-08.jpg' %}'><img
+                                        src='{% static 'app/images/main_polo.jpg' %}'
                                         data-bgposition='left top'
                                         data-bgfit='cover'
                                         data-bgrepeat='no-repeat' alt="banner"/>
@@ -130,8 +119,8 @@
                                     </div>
                                 </li>
                                 <li data-transition='random' data-slotamount='7' data-masterspeed='1000'
-                                    data-thumb='{% static 'app/images/slider_img_2.jpg' %}' class="black-text"><img
-                                        src='{% static 'app/images/slide-img2.jpg' %}'
+                                    data-thumb='{% static 'app/images/home.jpg' %}' class="black-text"><img
+                                        src='{% static 'app/images/home.jpg' %}'
                                         data-bgposition='left top'
                                         data-bgfit='cover'
                                         data-bgrepeat='no-repeat'
@@ -181,9 +170,7 @@
                 <aside class="col-xs-12 col-sm-12 col-md-3">
                     <div class="RHS-banner">
                         <div class="add"><a href="#"><img alt="banner-img"
-                                                          src="{% static 'app/images/rhs-banner1.jpg' %}"></a></div>
-                        <div class="add"><a href="#"><img alt="banner-img"
-                                                          src="{% static 'app/images/rhs-banner1.jpg' %}"></a></div>
+                                                          src="{% static 'app/images/polo-08.jpg' %}"></a></div>
                     </div>
                 </aside>
             </div>
@@ -281,7 +268,7 @@
                                                             <p class="special-price"><span
                                                                     class="price">{{ product.price }} </span></p>
                                                             <p class="old-price"><span class="price-sep">-</span> <span
-                                                                    class="price">{{  product.discount }}</span></p>
+                                                                    class="price">{{ product.discount }}</span></p>
                                                         </div>
                                                     </div>
                                                     <!--item-content-->
@@ -420,13 +407,14 @@
             <h2><span> Blogs</span></h2>
         </div>
         <div class="col-xs-12 col-sm-4">
-            <div class="blog-img"><img src="{% static 'app/images/blog-img1.jpg' %}" alt="Image">
-                <div class="mask"><a class="info" href="{% url 'blog_details_page' %}">Read More</a></div>
-            </div>
-            <h2><a href="{% url 'blog_details_page' %}">Pellentesque habitant morbi</a></h2>
-            <div class="post-date"><i class="icon-calendar"></i> Apr 10, 2014</div>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce sit
-                ... </p>
+            {% for blog in Blogs %}
+                <div class="blog-img"><img src="{{ blog.image.url }}" alt="Image">
+                    <div class="mask"><a class="info" href="{% url 'blog_details_page' blog.id %}">Read More</a></div>
+                </div>
+                <h2><a href="{% url 'blog_details_page' blog.id %}">{{ blog.title }}</a></h2>
+                <div class="post-date"><i class="icon-calendar"></i>{{ blog.created_at }}</div>
+                <p>{{ blog.quick_overview }}</p>
+            {% endfor %}
         </div>
     </section>
     <!-- End Latest Blog -->
