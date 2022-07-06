@@ -13,7 +13,7 @@ from app.models import Product
 class RegisterPage(FormView):
     form_class = RegisterForm
     success_url = reverse_lazy('login_page')
-    template_name = 'app/main/register-page.html'
+    template_name = 'app/auth/register-page.html'
 
     def form_valid(self, form):
         form.save()
@@ -32,7 +32,7 @@ class LogoutPage(LogoutView):
 class ForgotPasswordPage(FormView):
     form_class = ForgotPasswordForm
     success_url = reverse_lazy('index')
-    template_name = 'app/main/forgot-password.html'
+    template_name = 'app/auth/forgot-password.html'
 
     def form_valid(self, form):
         send_email(form.data.get('email'), self.request, 'forgot')
@@ -41,7 +41,7 @@ class ForgotPasswordPage(FormView):
 
 class LoginPage(LoginView):
     form_class = LoginForm
-    template_name = 'app/main/login-page.html'
+    template_name = 'app/auth/login-page.html'
     success_url = reverse_lazy('index')
 
     def form_valid(self, form):
@@ -82,7 +82,7 @@ class Product_Detail_Page(TemplateView):
         context['discount'] = int(product.price) - (int(product.price) * (product.discount / 100))
         context['product'] = product
 
-        # auth
+        # main_html
         all_category = Category.objects.filter(level=2)
         all_products = Product.objects.all()
         context['all_category'] = all_category
@@ -153,4 +153,4 @@ class ProductList(TemplateView):
 
 
 class ActivateAccount(TemplateView):
-    template_name = 'app/main/forgot-password.html'
+    template_name = 'app/auth/forgot-password.html'

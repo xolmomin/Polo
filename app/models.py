@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from django.core.validators import integer_validator
 from django.db.models import (
     FloatField, CharField, IntegerField, Model, ImageField, CASCADE, ForeignKey, EmailField, DateTimeField, SlugField,
-    SET_NULL)
+    SET_NULL, TextField)
 from django.utils.text import slugify
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
@@ -66,7 +66,6 @@ class Blog(BaseModel):
     image = ImageField(upload_to='blogs/')
     description = CharField(max_length=1000, blank=True, null=True)
     quick_overview = CharField(max_length=250, blank=True, null=True)
-    comments = CharField(max_length=250, blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -78,6 +77,16 @@ class Category(MPTTModel):
 
     def __str__(self):
         return self.name
+
+
+class Comment(MPTTModel, BaseModel):
+    title = CharField(max_length=150)
+    blog = ForeignKey(Blog, CASCADE, related_name="comments")
+    parent = TreeForeignKey('self', CASCADE, null=True, blank=True, related_name='children')
+    body = TextField()
+
+    def __str__(self):
+        return self.body
 
 
 class BlogCategory(MPTTModel):

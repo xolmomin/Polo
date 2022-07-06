@@ -6,10 +6,10 @@ from app.views import IndexPage, LoginPage, LogoutPage, ProductPage, ProductDeta
 from root import settings
 
 urlpatterns = [
-    # main url
+    # auth url
     path('', IndexPage.as_view(), name='index'),
 
-    # auth urls
+    # main_html urls
     path('login/', LoginPage.as_view(), name='login_page'),
     path('register/', RegisterPage.as_view(), name='register_page'),
     path('logout/', LogoutPage.as_view(), name='logout_page'),
