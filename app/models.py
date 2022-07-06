@@ -27,6 +27,13 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+    def create_comment(self, email, **extra_fields):
+        if not email:
+            raise ValueError('User should be tested ')
+        comment = self.model(email=email, **extra_fields)
+        comment.save(using=self._db)
+        return comment
+
     def create_superuser(self, email, password=None, **extra_fields):
         user = self.create_user(email, password, **extra_fields)
         user.is_staff = True
@@ -79,7 +86,7 @@ class Category(MPTTModel):
         return self.name
 
 
-class Comment(MPTTModel, BaseModel ):
+class Comment(MPTTModel, BaseModel):
     title = CharField(max_length=150)
     blog = ForeignKey(Blog, CASCADE, related_name="comments")
     parent = TreeForeignKey('self', CASCADE, null=True, blank=True, related_name='children')

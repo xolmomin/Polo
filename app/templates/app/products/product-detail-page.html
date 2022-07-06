@@ -13,8 +13,8 @@
                 <ul>
                     <li class="home"><a title="Go to Home Page" href="{% url 'index' %}">Home</a><span>&mdash;›</span>
                     </li>
-                    <li class><a title="Woman" href="{% url 'product_list' %}">Woman</a><span>&mdash;›</span></li>
-                    <li class="category13"><strong>Sample Product</strong></li>
+                    <li class><a title="{{ product.category }}" href="{% url 'product_list' %}">Woman</a><span>&mdash;›</span></li>
+                    <li class="category13"><strong>{{ product.title }}</strong></li>
                 </ul>
             </div>
         </div>

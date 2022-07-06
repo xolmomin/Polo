@@ -1,0 +1,89 @@
+{% extends 'app/main_html/base.html' %}
+{% load static %}
+{% block body_main %}
+    <!-- middle slider -->
+    <div class="promo-banner-section container wow bounceInUp animated">
+        <div class="row">
+            <div class="col-lg-12"><img alt="promo-banner3" src="{% static 'app/images/jewelry-banner.jpg' %}"></div>
+        </div>
+    </div>
+    <section class="middle-slider container wow bounceInUp animated">
+        <div class="row">
+            {% for i in Categorys %}
+                {% if i.level == 1 %}
+                    <div class="col-md-6">
+                        <div class="bag-product-slider small-pr-slider cat-section">
+                            <div class="slider-items-products">
+                                <div class="new_title center">
+                                    <h2>{{ i.name }}</h2>
+                                </div>
+                                {% for x in Products %}
+                                    {% if i.id == x.category_id %}
+                                        <div id="bag-seller-slider" class="product-flexslider hidden-buttons">
+                                            <div class="slider-items slider-width-col3">
+
+                                                <div class="item">
+                                                    <div class="col-item">
+                                                        <div class="product-image-area"><a class="product-image"
+                                                                                           title="{{ x.name }}"
+                                                                                           href="{% url 'product_detail_with_id' x.id %}">
+                                                            <img
+                                                                    src="{{ x.image.url }}"
+                                                                    class="img-responsive" alt="a"/> </a>
+                                                            <div class="actions-links"><span class="add-to-links"> <a
+                                                                    title="magik-btn-quickview"
+                                                                    class="magik-btn-quickview"
+                                                                    href="{% url 'quick_view_product' %}"><span>quickview</span></a> <a
+                                                                    title="Add to Wishlist" class="link-wishlist"
+                                                                    href="{% url 'my_wishlist_page' %}"><span>Add to Wishlist</span></a> <a
+                                                                    title="Add to Compare" class="link-compare"
+                                                                    href="{% url 'compare_page' %}"><span>Add to Compare</span></a></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info">
+                                                            <div class="info-inner">
+                                                                <div class="item-title"><a title=" {{ product.title }}"
+                                                                                           href="{% url 'product_detail_with_id' x.id %}">
+                                                                    {{ x.title }}</a>
+                                                                </div>
+                                                                <div class="item-content">
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="price-box">
+                                                                        <p class="special-price"><span
+                                                                                class="price"> ${{ x.price }} </span>
+                                                                        </p>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="actions">
+                                                                <button type="button" title="Add to Cart"
+                                                                        class="button btn-cart">
+                                                                    <span>Add to Cart</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Item -->
+
+
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+    </section>
+    <!-- End middle slider -->
+{% endblock %}

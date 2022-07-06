@@ -558,13 +558,13 @@
                                     {% for i in Categorys %}
                                         {% if not i.parent_id %}
                                             <li class="level3 nav-6-1 parent item">
-                                            <a href="{% url 'product_list' %}"><span>{{ i.name }}</span></a>
+                                            <a href="{% url 'sorted_product'%}"><span>{{ i.name }}</span></a>
                                             <!--sub sub category-->
                                             {% for x in Categorys %}
                                                 {% if x.parent_id == i.id %}
                                                     <ul class="level1">
                                                         <li class="level2 nav-6-1-1"><a
-                                                                href="{% url 'product_list' %}"><span>{{ x.name }}</span></a>
+                                                                href="{% url 'sorted_product' %}"><span>{{ x.name }}</span></a>
                                                         </li>
                                                     </ul>
                                                 {% endif %}

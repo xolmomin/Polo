@@ -3,7 +3,7 @@ from django.urls import path
 from app.views import IndexPage, LoginPage, LogoutPage, ProductPage, ProductDetailPage, QuickViewPage, AllProductPage, \
     RegisterPage, FaqPage, ComparePage, AddressPage, ContactUsPage, AboutUsPage, ForgotPasswordPage, MyWishesPage, \
     DashboardPage, ShoppingCardsPage, CheckOutPage, BlogPage, ProductList, BlogDetailsPage, Product_Detail_Page, \
-    AddCommentPage
+    AddCommentPage, SortedProduct
 
 from root import settings
 
@@ -25,6 +25,7 @@ urlpatterns = [
     path('dashboard/', DashboardPage.as_view(), name='dashboard_page'),
     path('quick-view-product/', QuickViewPage.as_view(), name='quick_view_product'),
     path('list-product/', ProductList.as_view(), name='list_product'),
+    path('sorted-product/', SortedProduct.as_view(), name='sorted_product'),
 
     # about company urls
     path('faq-page/', FaqPage.as_view(), name='faq_page'),

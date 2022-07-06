@@ -96,6 +96,7 @@ class Product_Detail_Page(TemplateView):
         context['price'] = int(product.price)
         context['discount'] = int(product.price) - (int(product.price) * (product.discount / 100))
         context['product'] = product
+        context['Categorys'] = Category.objects.all()
 
         # main_html
         all_category = Category.objects.filter(level=2)
@@ -168,6 +169,18 @@ class BlogDetailsPage(TemplateView):
 
 class ProductList(TemplateView):
     template_name = 'app/products/list.html'
+
+
+class SortedProduct(TemplateView):
+    template_name = 'app/products/sorted_product.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Products'] = Product.objects.all()
+        context['Categorys'] = Category.objects.all()
+        context['Blogs'] = Blog.objects.all()
+
+        return context
 
 
 class ActivateAccount(TemplateView):

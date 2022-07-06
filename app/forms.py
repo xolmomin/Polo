@@ -125,7 +125,7 @@ class CommentForm(Form):
 
     @atomic
     def save(self):
-        comment = Comment.objects(
+        comment = Comment.objects.create_comment(
             username=self.cleaned_data.get('title'),
             email=self.cleaned_data.get('email')
         )
