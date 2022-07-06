@@ -79,7 +79,7 @@ class Category(MPTTModel):
         return self.name
 
 
-class Comment(MPTTModel, BaseModel):
+class Comment(MPTTModel, BaseModel ):
     title = CharField(max_length=150)
     blog = ForeignKey(Blog, CASCADE, related_name="comments")
     parent = TreeForeignKey('self', CASCADE, null=True, blank=True, related_name='children')

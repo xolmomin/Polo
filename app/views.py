@@ -3,8 +3,8 @@ from django.contrib.auth.views import LogoutView, LoginView
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
-from app.forms import RegisterForm, ForgotPasswordForm, send_email
-from app.models import Product, Category, Blog, BlogCategory
+from app.forms import RegisterForm, ForgotPasswordForm, send_email, CommentForm
+from app.models import Product, Category, Blog, BlogCategory, Comment
 
 from app.forms import RegisterForm, LoginForm
 from app.models import Product
@@ -21,6 +21,21 @@ class RegisterPage(FormView):
             self.request,
             level=messages.WARNING,
             message='You are successfully registered '
+        )
+        return super().form_valid(form)
+
+
+class AddCommentPage(FormView):
+    form_class = CommentForm
+    success_url = reverse_lazy('blog_page')
+    template_name = 'app/company/add_comment.html'
+
+    def form_valid(self, form):
+        form.save()
+        messages.add_message(
+            self.request,
+            level=messages.WARNING,
+            message='You are successfully add comment'
         )
         return super().form_valid(form)
 
@@ -141,9 +156,12 @@ class BlogDetailsPage(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         blog = Blog.objects.filter(id=kwargs.get('blog_id')).first()
+        comment = Comment.objects.filter(id=kwargs.get('blog_id')).first()
         context['blog'] = blog
         context['blog_category'] = BlogCategory.objects.all()
         context['Products'] = Product.objects.all()
+        context['all_blogs'] = Blog.objects.all()
+        context['comments'] = comment
 
         return context
 

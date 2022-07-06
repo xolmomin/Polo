@@ -231,7 +231,7 @@
                                         <div class="col-item">
                                             <div class="sale-label sale-top-right"> New</div>
                                             <div class="product-image-area"><a class="product-image"
-                                                                               title="Sample Product"
+                                                                               title="{{ product.title }}"
                                                                                href="{% url 'product_detail_with_id' product.id %}">
                                                 <img
                                                         src="{{ product.image.url }}"
@@ -253,7 +253,7 @@
                                             </div>
                                             <div class="info">
                                                 <div class="info-inner">
-                                                    <div class="item-title"><a title="Sample Product"
+                                                    <div class="item-title"><a title="{{ product.title }}"
                                                                                href="{% url 'product_detail_with_id' product.id %}"> {{ product.title }}</a>
                                                     </div>
                                                     <!--item-title-->
@@ -356,7 +356,7 @@
                                                         </div>
                                                         <div class="info">
                                                             <div class="info-inner">
-                                                                <div class="item-title"><a title=" Sample Product"
+                                                                <div class="item-title"><a title=" {{ product.title }}"
                                                                                            href="{% url 'product_detail_with_id' x.id %}">
                                                                     {{ x.title }}</a>
                                                                 </div>
