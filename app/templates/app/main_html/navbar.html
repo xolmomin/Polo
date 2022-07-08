@@ -558,7 +558,7 @@
                                     {% for i in Categorys %}
                                         {% if not i.parent_id %}
                                             <li class="level3 nav-6-1 parent item">
-                                            <a href="{% url 'sorted_product'%}"><span>{{ i.name }}</span></a>
+                                            <a href="{% url 'sorted_product' %}"><span>{{ i.name }}</span></a>
                                             <!--sub sub category-->
                                             {% for x in Categorys %}
                                                 {% if x.parent_id == i.id %}
@@ -571,9 +571,9 @@
                                             {% endfor %}
                                         {% endif %}
                                     {% endfor %}
-                                    </li>
-                                    <!--level3 nav-6-1 parent item-->
 
+                                    <!--level3 nav-6-1 parent item-->
+                                    </li>
                                     <!--level1-->
 
                                     <!--sub sub category-->
@@ -590,6 +590,8 @@
 
                                             Welcome to POLO at Home.”</p>
                                     </div>
+                                </ul>
+
                             </div>
                             <div class="nav-block nav-block-right std grid12-4">
                                 <div class="static-img-block"><a href="#"><img

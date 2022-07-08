@@ -224,62 +224,70 @@
                         <div class="new_title center">
                             <h2>New products</h2>
                         </div>
-                        <div id="best-seller-slider" class="product-flexslider hidden-buttons">
-                            <div class="slider-items slider-col2">
+                        <div id="best-seller-slider" class="product-flexslider hidden-buttons col6">
+                            <div class="slider-items-products slider-col4" style="display: flex">
                                 {% for product in Products %}
-                                    <!-- Item -->
-                                    <div class="item">
-                                        <div class="col-item">
-                                            <div class="sale-label sale-top-right"> New</div>
-                                            <div class="product-image-area"><a class="product-image"
-                                                                               title="{{ product.title }}"
-                                                                               href="{% url 'product_detail_with_id' product.id %}">
-                                                <img
-                                                        src="{{ product.image.url }}"
-                                                        class="img-responsive"
-                                                        alt="product-image"/> </a>
-                                                <div class="hover_fly"><a class="exclusive ajax_add_to_cart_button"
-                                                                          href="#"
-                                                                          title="Add to cart">
-                                                    <div><i class="icon-shopping-cart"></i><span>Add to cart</span>
-                                                    </div>
-                                                </a> <a class="quick-view" href="{% url 'quick_view_product' %}">
-                                                    <div><i class="icon-eye-open"></i><span>Quick view</span></div>
-                                                </a> <a class="add_to_compare" href="{% url 'compare_page' %}">
-                                                    <div><i class="icon-random"></i><span>Add to compare</span></div>
-                                                </a> <a class="addToWishlist wishlistProd_5"
-                                                        href="{% url 'my_wishlist_page' %}">
-                                                    <div><i class="icon-heart"></i><span>Add to Wishlist</span></div>
-                                                </a></div>
-                                            </div>
-                                            <div class="info">
-                                                <div class="info-inner">
-                                                    <div class="item-title"><a title="{{ product.title }}"
-                                                                               href="{% url 'product_detail_with_id' product.id %}"> {{ product.title }}</a>
-                                                    </div>
-                                                    <!--item-title-->
-                                                    <div class="item-content">
-                                                        <div class="ratings">
-                                                            <div class="rating-box">
-                                                                <div class="rating"></div>
+
+                                    <div id="brand-logo-slider">
+                                        <!-- Item -->
+                                        <div class="item" style="margin-right: 100px">
+                                            <div class="col-item">
+                                                <div class="sale-label sale-top-right"> New</div>
+                                                <div class="product-image-area"><a class="product-image"
+                                                                                   title="{{ product.title }}"
+                                                                                   href="{% url 'product_detail_with_id' product.id %}">
+                                                    <img
+                                                            src="{{ product.image.url }}"
+                                                            class="img-responsive" style="width: 250px; height: 100px"
+                                                            alt="product-image"/> </a>
+                                                    <div class="hover_fly"><a class="exclusive ajax_add_to_cart_button"
+                                                                              href="#"
+                                                                              title="Add to cart">
+                                                        <div><i class="icon-shopping-cart"></i><span>Add to cart</span>
+                                                        </div>
+                                                    </a> <a class="quick-view" href="{% url 'quick_view_product' %}">
+                                                        <div><i class="icon-eye-open"></i><span>Quick view</span></div>
+                                                    </a> <a class="add_to_compare" href="{% url 'compare_page' %}">
+                                                        <div><i class="icon-random"></i><span>Add to compare</span>
+                                                        </div>
+                                                    </a> <a class="addToWishlist wishlistProd_5"
+                                                            href="{% url 'my_wishlist_page' %}">
+                                                        <div><i class="icon-heart"></i><span>Add to Wishlist</span>
+                                                        </div>
+                                                    </a></div>
+                                                </div>
+                                                <div class="info">
+                                                    <div class="info-inner">
+                                                        <div class="item-title"><a title="{{ product.title }}"
+                                                                                   href="{% url 'product_detail_with_id' product.id %}"> {{ product.title }}</a>
+                                                        </div>
+                                                        <!--item-title-->
+                                                        <div class="item-content">
+                                                            <div class="ratings">
+                                                                <div class="rating-box">
+                                                                    <div class="rating"></div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="price-box">
+                                                                <p class="special-price"><span
+                                                                        class="price">{{ product.price }} </span></p>
+                                                                <p class="old-price"><span class="price-sep">-</span>
+                                                                    <span
+                                                                            class="price">{{ product.discount }}</span>
+                                                                </p>
                                                             </div>
                                                         </div>
-
-                                                        <div class="price-box">
-                                                            <p class="special-price"><span
-                                                                    class="price">{{ product.price }} </span></p>
-                                                            <p class="old-price"><span class="price-sep">-</span> <span
-                                                                    class="price">{{ product.discount }}</span></p>
-                                                        </div>
+                                                        <!--item-content-->
                                                     </div>
-                                                    <!--item-content-->
-                                                </div>
-                                                <!--info-inner-->
+                                                    <!--info-inner-->
 
-                                                <div class="clearfix"></div>
+                                                    <div class="clearfix"></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+
                                     <!-- End Item -->
                                 {% endfor %}
                             </div>
@@ -326,16 +334,23 @@
         <div class="blog-title">
             <h2><span> Blogs</span></h2>
         </div>
-        <div class="col-xs-12 col-sm-4">
-            {% for blog in Blogs %}
-                <div class="blog-img"><img src="{{ blog.image.url }}" alt="Image">
-                    <div class="mask"><a class="info" href="{% url 'blog_details_page' blog.id %}">Read More</a></div>
-                </div>
-                <h2><a href="{% url 'blog_details_page' blog.id %}">{{ blog.title }}</a></h2>
-                <div class="post-date"><i class="icon-calendar"></i>{{ blog.created_at }}</div>
-                <p>{{ blog.quick_overview }}</p>
-            {% endfor %}
-        </div>
+        <div class="col-xs-12 col-sm-12" style="display: flex">
+            <div class="col-xs-12 col-sm-12" style="display: flex">
+                {% for blog in Blogs %}
+                    <div style="display: block; margin-right: 50px">
+                        <div class="blog-img"><img src="{{ blog.image.url }}" style="width: 250px; height: 150px"
+                                                   alt="Image">
+                            <div class="mask"><a class="info" href="{% url 'blog_details_page' blog.id %}">Read More</a>
+                            </div>
+                        </div>
+                        <h2><a href="{% url 'blog_details_page' blog.id %}">{{ blog.title }}</a></h2>
+                        <div class="post-date"><i class="icon-calendar"></i>{{ blog.created_at }}</div>
+                        <p>{{ blog.quick_overview }}</p>
+
+                    </div>
+
+                {% endfor %}
+            </div>
     </section>
     <!-- End Latest Blog -->
 
