@@ -3,7 +3,7 @@ Theme Name: Polo
 Theme URI: http://magikcommerce.com/
 Author: MagikCommerce
 Author URI: https://www.magikcommerce.com/
-Description:  Polo HTML templates
+Description:  Polo HTML Template
 Version: 1.4
 License: GNU General Public License v2 or later
 Tags: two-columns, left-sidebar, fixed-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu
@@ -963,7 +963,7 @@ ul.vertnav-top li > a > span > .cat-label {
 .nav-block .section-line {
 	border-color: #eee;
 }
-	/* Common styles for auth menu (horizontal + mobile vertical + mobile menu trigger) */
+	/* Common styles for main menu (horizontal + mobile vertical + mobile menu trigger) */
 
 	/* horizontal + mobile menu trigger */
 #nav > li > a {
@@ -4460,7 +4460,6 @@ ul.topnav em:hover {
 }
 .slider-items-products {
 	position: relative;
-
 }
 .slider-items-products .item {
 	text-align: left;	

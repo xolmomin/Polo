@@ -9,7 +9,9 @@ from django.forms import Form, EmailField, CharField
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
-from app.models import User, Comment
+from social_core.pipeline import user
+
+from app.models import User, Comment, ProductToUser
 from app.tokens import account_activation_token
 from root.settings import EMAIL_HOST, EMAIL_HOST_USER
 
@@ -130,3 +132,13 @@ class CommentForm(Form):
             email=self.cleaned_data.get('email')
         )
         comment.save()
+
+class ProductToUserAtomic:
+    pass
+
+    # @atomic
+    # def save(self):
+    #     product_to_user = ProductToUser.objects.create(
+    #         pass
+    #     )
+

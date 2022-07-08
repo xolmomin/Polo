@@ -66,6 +66,9 @@ class Product(BaseModel):
     def __str__(self):
         return self.title
 
+class ProductToUser(BaseModel):
+    product = ForeignKey(Product , CASCADE)
+    user = ForeignKey(User , CASCADE)
 
 class Blog(BaseModel):
     title = CharField(max_length=255)
