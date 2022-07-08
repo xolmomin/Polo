@@ -35,7 +35,7 @@ urlpatterns = [
 
     # blog
     path('polo-blog/', BlogPage.as_view(), name='blog_page'),
-    path('blog-details/<int:blog_id>', BlogDetailsPage.as_view(), name='blog_details_page'),
+    path('blog-detail/<int:blog_id>', BlogDetailsPage.as_view(), name='blog_details_page'),
     path('add-comment/', AddCommentPage.as_view(), name='add_comment'),
 
     # user urls

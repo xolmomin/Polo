@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.views import LogoutView, LoginView
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import FormView, TemplateView
+from django.views.generic import FormView, TemplateView, DetailView
 from app.forms import RegisterForm, ForgotPasswordForm, send_email, CommentForm
 from app.models import Product, Category, Blog, BlogCategory, Comment
 
@@ -150,19 +150,29 @@ class ShoppingCardsPage(TemplateView):
 class BlogPage(TemplateView):
     template_name = 'app/company/blog.html'
 
+#
+# class BaseMixin:
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['Products'] = Product.objects.all()
+#         return context
+#
 
-class BlogDetailsPage(TemplateView):
+class BlogDetailsPage(DetailView):
+    model = Blog
+    queryset = Blog.objects.all()
+    pk_url_kwarg = 'blog_id'
+    context_object_name = 'blog'
     template_name = 'app/company/blog_detail.html'
+    # extra_context = 'blog'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        blog = Blog.objects.filter(id=kwargs.get('blog_id')).first()
-        comment = Comment.objects.filter(id=kwargs.get('blog_id')).first()
-        context['blog'] = blog
-        context['blog_category'] = BlogCategory.objects.all()
-        context['Products'] = Product.objects.all()
+        # comment = Comment.objects.filter(id=kwargs.get('blog_id'))
+        context['blog_categories'] = BlogCategory.objects.all()
+        context['products'] = Product.objects.all()
         context['all_blogs'] = Blog.objects.all()
-        context['comments'] = comment
+        # context['comments'] = comment
 
         return context
 

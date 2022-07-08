@@ -2,9 +2,8 @@ from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import integer_validator
 from django.db.models import (
-    FloatField, CharField, IntegerField, Model, ImageField, CASCADE, ForeignKey, EmailField, DateTimeField, SlugField,
-    SET_NULL, TextField)
-from django.utils.text import slugify
+    FloatField, CharField, IntegerField, Model, ImageField, CASCADE, ForeignKey, EmailField, DateTimeField, SET_NULL,
+    TextField)
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 
@@ -66,9 +65,11 @@ class Product(BaseModel):
     def __str__(self):
         return self.title
 
+
 class ProductToUser(BaseModel):
-    product = ForeignKey(Product , CASCADE)
-    user = ForeignKey(User , CASCADE)
+    product = ForeignKey(Product, CASCADE)
+    user = ForeignKey(User, CASCADE)
+
 
 class Blog(BaseModel):
     title = CharField(max_length=255)
@@ -82,7 +83,7 @@ class Blog(BaseModel):
 
 
 class Category(MPTTModel):
-    parent = TreeForeignKey('self', CASCADE, null=True, blank=True, related_name='children')
+    parent = TreeForeignKey('self', CASCADE, 'children', null=True, blank=True)
     name = CharField(max_length=50, unique=True)
 
     def __str__(self):
@@ -91,8 +92,8 @@ class Category(MPTTModel):
 
 class Comment(MPTTModel, BaseModel):
     title = CharField(max_length=150)
-    blog = ForeignKey(Blog, CASCADE, related_name="comments")
-    parent = TreeForeignKey('self', CASCADE, null=True, blank=True, related_name='children')
+    blog = ForeignKey(Blog, CASCADE, 'comments')
+    parent = TreeForeignKey('self', CASCADE, 'children', null=True, blank=True)
     body = TextField()
 
     def __str__(self):
@@ -100,7 +101,7 @@ class Comment(MPTTModel, BaseModel):
 
 
 class BlogCategory(MPTTModel):
-    parent = TreeForeignKey('self', CASCADE, null=True, blank=True, related_name='children')
+    parent = TreeForeignKey('self', CASCADE, 'children', null=True, blank=True)
     name = CharField(max_length=50, unique=True)
 
     def __str__(self):

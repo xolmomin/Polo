@@ -76,9 +76,12 @@
                                     <div class="position-relative mt-4" style="color : RED">
                                         <p>
                                             {% if messages %}
-                                                {% for message in messages %}
-                                                    <p>{{ message }}</p>
-                                                {% endfor %}
+                                                <ul class="messages">
+                                                    {% for message in messages %}
+                                                        <li{% if message.tags %}
+                                                            class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                                    {% endfor %}
+                                                </ul>
                                             {% endif %}
 
                                         {% if form.errors %}
