@@ -1,11 +1,5 @@
-{% extends 'app/auth/base.html' %}
+{% extends 'app/main_html/base.html' %}
 {% load static %}
-
-
-
-
-
-
 {% block body_main %}
     <div class="breadcrumbs">
         <div class="container">
@@ -13,15 +7,14 @@
                 <ul>
                     <li class="home"><a title="Go to Home Page" href="{% url 'index' %}">Home</a><span>&mdash;›</span>
                     </li>
-                    <li class><a title="Woman" href="{% url 'product_list' %}">Woman</a><span>&mdash;›</span></li>
-                    <li class="category13"><strong>Sample Product</strong></li>
+                    <li class><a title="{{ product.category }}" href="{% url 'product_list' %}">Woman</a><span>&mdash;›</span></li>
+                    <li class="category13"><strong>{{ product.title }}</strong></li>
                 </ul>
             </div>
         </div>
     </div>
     <!-- end breadcrumbs -->
     <!-- main-container -->
-
     <section class="main-container col1-layout">
         <div class="main container">
             <div class="col-main">

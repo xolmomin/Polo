@@ -2,14 +2,16 @@ from django.urls import path
 
 from app.views import IndexPage, LoginPage, LogoutPage, ProductPage, ProductDetailPage, QuickViewPage, AllProductPage, \
     RegisterPage, FaqPage, ComparePage, AddressPage, ContactUsPage, AboutUsPage, ForgotPasswordPage, MyWishesPage, \
-    DashboardPage, ShoppingCardsPage, CheckOutPage, BlogPage, ProductList, BlogDetailsPage, Product_Detail_Page
+    DashboardPage, ShoppingCardsPage, CheckOutPage, BlogPage, ProductList, BlogDetailsPage, Product_Detail_Page, \
+    AddCommentPage, SortedProduct
+
 from root import settings
 
 urlpatterns = [
-    # main url
+    # auth url
     path('', IndexPage.as_view(), name='index'),
 
-    # auth urls
+    # main_html urls
     path('login/', LoginPage.as_view(), name='login_page'),
     path('register/', RegisterPage.as_view(), name='register_page'),
     path('logout/', LogoutPage.as_view(), name='logout_page'),
@@ -23,6 +25,7 @@ urlpatterns = [
     path('dashboard/', DashboardPage.as_view(), name='dashboard_page'),
     path('quick-view-product/', QuickViewPage.as_view(), name='quick_view_product'),
     path('list-product/', ProductList.as_view(), name='list_product'),
+    path('sorted-product/', SortedProduct.as_view(), name='sorted_product'),
 
     # about company urls
     path('faq-page/', FaqPage.as_view(), name='faq_page'),
@@ -32,7 +35,8 @@ urlpatterns = [
 
     # blog
     path('polo-blog/', BlogPage.as_view(), name='blog_page'),
-    path('blog-details/', BlogDetailsPage.as_view(), name='blog_details_page'),
+    path('blog-details/<int:blog_id>', BlogDetailsPage.as_view(), name='blog_details_page'),
+    path('add-comment/', AddCommentPage.as_view(), name='add_comment'),
 
     # user urls
     path('my-wishes/', MyWishesPage.as_view(), name='my_wishlist_page'),

@@ -3,12 +3,13 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
+from django.db.models import TextField
 from django.db.transaction import atomic
 from django.forms import Form, EmailField, CharField
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
-from app.models import User
+from app.models import User, Comment
 from app.tokens import account_activation_token
 from root.settings import EMAIL_HOST, EMAIL_HOST_USER
 
@@ -97,7 +98,7 @@ def send_email(email, request, _type):
     user = User.objects.get(email=email)
     subject = ' POLO Shop activate your account'
     current_site = get_current_site(request)
-    message = render_to_string('app/main/activation-password.html', {
+    message = render_to_string('app/auth/activation-password.html', {
         'user': user,
         'domain': current_site.domain,
         'uid': urlsafe_base64_encode(force_bytes(str(user.pk))),
@@ -109,3 +110,23 @@ def send_email(email, request, _type):
 
     result = send_mail(subject, message, from_email, recipient_list)
     print('Send to MAIL')
+
+
+class CommentForm(Form):
+    name = CharField(max_length=255)
+    email = EmailField()
+    comment = TextField()
+
+    def clean_email(self):
+        email = self.data.get('email')
+        if not User.objects.filter(email=email).exists():
+            raise ValidationError(f'You are not registered')
+        return email
+
+    @atomic
+    def save(self):
+        comment = Comment.objects.create_comment(
+            username=self.cleaned_data.get('title'),
+            email=self.cleaned_data.get('email')
+        )
+        comment.save()
